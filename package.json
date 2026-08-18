@@ -1,0 +1,14 @@
+{
+  "name": "sandustry-modding-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "module",
+  "devDependencies": {
+    "typedoc": "^0.28.20"
+  }
+}

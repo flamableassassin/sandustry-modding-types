@@ -1,0 +1,15 @@
+- [ ] Clean up the [player shared type](./src/shared-types/player.ts)
+  - [ ] Refactor and split up player interface
+    - [ ] Tech
+    - [ ] weaponsMeta
+  - [ ] Refactor and split up inventory item
+    - [ ] abilities
+- [ ] [Element types](./src/api/elements.d.ts)
+  - [ ] `ElementCreateOptions`
+  - [ ] `ElementRemovalOptions`
+  - [ ] `e`
+  - [ ] `r`
+- [ ] [`Cooldown` type](./src/api/cooldown.d.ts)
+- [ ] [`ExcavationProfileDefinitionV1` type](./src/api/excavation.d.ts)
+- [ ] [`EventPayload` type ](./src/api/events.d.ts)
+  - [ ] See if there is a way to build native event typing for type doc
