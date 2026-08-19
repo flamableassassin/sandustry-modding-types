@@ -1,3 +1,4 @@
+- [ ] Split worker and main runtimes
 - [ ] Clean up the [player shared type](./src/shared-types/player.ts)
   - [ ] Refactor and split up player interface
     - [ ] Tech
