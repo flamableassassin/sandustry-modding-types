@@ -84,3 +84,7 @@
   - [ ] `ExcavateOptions`
   - [ ] `WorldItemType`
   - [ ] `WorldItemLight`
+
+- [ ] Build JSON schemas
+  - [ ] `modinfo.json`
+  - [ ] `patches.json`
