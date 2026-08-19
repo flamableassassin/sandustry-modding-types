@@ -72,11 +72,10 @@ export namespace elements {
   export function refreshColorAtCellWhenIdle(cellX: number, cellY: number): void;
   export function setPhysicsAtCellWhenIdle(cellX: number, cellY: number, physicsState: number): void;
   export function setDurationAtCellWhenIdle(cellX: number, cellY: number, duration: number, options?: { updateMax?: boolean; }): void;
+
+  export type ElementCreateOptions = unknown
+  export type ElementRemovalOptions = unknown
+  export type e = unknown
+  export type r = unknown
 }
 
-
-// TODO
-type ElementCreateOptions = unknown
-type ElementRemovalOptions = unknown
-type e = unknown
-type r = unknown
