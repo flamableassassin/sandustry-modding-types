@@ -8,4 +8,7 @@
   ],
   "internalModule": "Types",
   "out": "dist",
+  "projectDocuments": [
+    "docs/*.md"
+  ]
 }
