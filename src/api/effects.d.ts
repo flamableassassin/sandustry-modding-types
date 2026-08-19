@@ -1,23 +1,25 @@
-import { Vector2 } from "../shared-types/player";
+import type { Vector2 } from "../shared-types/player";
 
 export namespace effects {
-  export function createDistortionWaveAtWorld(worldX: number, worldY: number, options?: {
-    style?: 'implode' | 'explode';
-    duration?: number;
-    maxRadius?: number;
-    intensity?: number;
-    color?: [number, number, number, number];
-  }): void;
+  export function createLightAtWorld(worldX: number, worldY: number, options?: TemporaryLightOptions): { index: number | null; };
+  export function createParticlesAtWorld(worldX: number, worldY: number, options?: ParticleEffectOptions): void;
+  export function createDistortionWaveAtWorld(worldX: number, worldY: number, options?: DistortionEffectOptions): void;
+  export function createEffectAtWorld(effectId: "heatWave", worldX: number, worldY: number, options?: EffectOptions): void;
+  export function createLaserAtWorld(startWorldX: number, startWorldY: number, endWorldX: number, endWorldY: number, options?: LaserEffectOptions): any;
+  export function removeLightById(lightId: number): void;
 
-  export function createEffectAtWorld(effectId: "heatWave", worldX: number, worldY: number, options?: {
+  export interface LaserEffectOptions {
+    width?: number;
+    brightness?: number;
+    color?: number;
+    glow?: boolean;
+  }
+  export interface EffectOptions {
     duration?: number,
     maxRadius?: number,
     intensity?: number,
-  }): void;
-
-  export function createLaserAtWorld(startWorldX: number, startWorldY: number, endWorldX: number, endWorldY: number, options?: { width?: number; brightness?: number; color?: number; glow?: boolean; }): any;
-
-  export function createLightAtWorld(worldX: number, worldY: number, options?: {
+  }
+  export interface TemporaryLightOptions {
     brightness?: number,
     duration?: number,
     durationMs?: number,
@@ -30,9 +32,8 @@ export namespace effects {
     noopIfFull?: boolean,
     priority?: number,
     dedupKey: string,
-  }): { index: number | null; };
-
-  export function createParticlesAtWorld(worldX: number, worldY: number, options?: {
+  }
+  export interface ParticleEffectOptions {
     count?: number,
     velocity?: Vector2,
     minSpeed?: number,
@@ -49,7 +50,13 @@ export namespace effects {
     fadeStart?: number,
     fadeEnd?: number,
     damp?: number,
-  }): void;
+  }
 
-  export function removeLightById(lightId: number): void;
+  export interface DistortionEffectOptions {
+    style?: 'implode' | 'explode';
+    duration?: number;
+    maxRadius?: number;
+    intensity?: number;
+    color?: [number, number, number, number];
+  }
 }

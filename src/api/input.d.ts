@@ -1,0 +1,14 @@
+export namespace input {
+  export function registerBinding(bindingId: string, defaultKeys: string[], definition: InputBindingDefinition): string;
+  export function getMouseCellPosition(): { x: number; y: number; };
+  export function getBoundKeys(bindingId: string): string[];
+  export function getDisplayKey(bindingId: string, defaultLabel?: string): string;
+  export function triggerBinding(bindingId: string): void;
+  export function pressBinding(bindingId: string): void;
+  export function releaseBinding(bindingId: string): void;
+  export function resetMouseState(): void;
+  export function isCtrlHeld(): boolean;
+  export function isAltHeld(): boolean;
+
+  export type InputBindingDefinition = unknown
+}
