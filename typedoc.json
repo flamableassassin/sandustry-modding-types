@@ -6,5 +6,6 @@
   "plugin": [
     "typedoc-plugin-missing-exports",
   ],
-  "internalModule": "Types"
+  "internalModule": "Types",
+  "out": "dist",
 }
