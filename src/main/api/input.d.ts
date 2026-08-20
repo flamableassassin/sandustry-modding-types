@@ -19,6 +19,8 @@ export namespace input {
     displayName: string;
     category: string;
     handlers: InputBindingHandlers;
+
+    // Temporary until we're sure we have the full definition.
     [key: string]: unknown;
   }
 }

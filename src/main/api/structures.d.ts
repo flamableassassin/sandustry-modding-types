@@ -79,6 +79,8 @@ export namespace structures {
     shape?: number[][];
     variants?: StructureVariant[];
     render?: StructureRender;
+
+    // Temporary until we're sure we have the full definition.
     [key: string]: unknown;
   }
 
