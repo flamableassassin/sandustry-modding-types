@@ -27,15 +27,6 @@ Do not copy a main-thread call into worker code unless it appears in the worker
 entry reference. Likewise, do not use a direct worker mutation in main code just
 because the namespace has a similar name.
 
-## Shared operations
-
-Some read operations and types are re-exported into both entry points from
-`src/shared`. Their presence in the shared source tree explains the overlap; it
-does not make every method in the surrounding namespace shared.
-
-When both contexts need the same data, use the documented event or shared-buffer
-APIs. Shared buffers are typed arrays. A lookup can return `undefined`, while a
-worker-side `require()` can create or obtain the requested buffer as declared.
 
 ## Coordinates and identifiers
 
