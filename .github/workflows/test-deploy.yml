@@ -1,6 +1,5 @@
 # Yoink from https://github.com/flamableassassin/drawshield-api/blob/main/.github/workflows/test-deploy.yml
 
-
 # Yoink from https://docusaurus.io/docs/deployment#deploying-to-github-pages
 name: Test deployment
 
@@ -12,7 +11,7 @@ on:
       - synchronize
       - closed
     branches:
-      - main
+      - master
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
