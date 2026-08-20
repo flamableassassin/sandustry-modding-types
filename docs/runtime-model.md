@@ -41,7 +41,7 @@ because the namespace has a similar name.
 
 ## Structure processors
 
-Use `api.structures.addProcessor()` for recurring machine behavior. Keep a
+Use {@link main.api.structures.addProcessor} for recurring machine behavior. Keep a
 processor bounded:
 
 - cache stable type resolutions outside the callback;
