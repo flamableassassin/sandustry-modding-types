@@ -1,9 +1,9 @@
 import type { ComponentType, ReactNode, RefObject } from "react";
+import { ui as sharedUI } from "../../shared/api/ui";
 export namespace ui {
-  export function toast(message: LocalizedText, options?: ToastOptions): void;
-  export type LocalizedText = unknown;
-  export type ToastOptions = unknown;
-
+  export import toast = sharedUI.toast;
+  export import LocalizedText = sharedUI.LocalizedText;
+  export import ToastOptions = sharedUI.ToastOptions;
 
   export function update(componentId: ComponentId, options?: any): void;
   export function openPauseMenu(): void;
