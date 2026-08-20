@@ -12,7 +12,7 @@ declare namespace effects {
 
 
   export function createDistortionWaveAtWorld(worldX: number, worldY: number, options?: DistortionEffectOptions): void;
-  export function createLaserAtWorld(startWorldX: number, startWorldY: number, endWorldX: number, endWorldY: number, options?: LaserEffectOptions): any;
+  export function createLaserAtWorld(startWorldX: number, startWorldY: number, endWorldX: number, endWorldY: number, options?: LaserEffectOptions): LaserEffectHandle;
   export function removeLightById(lightId: number): void;
 
   export interface LaserEffectOptions {
@@ -20,6 +20,10 @@ declare namespace effects {
     brightness?: number;
     color?: number;
     glow?: boolean;
+  }
+
+  export interface LaserEffectHandle {
+    destroy(): void;
   }
 
   export interface DistortionEffectOptions {

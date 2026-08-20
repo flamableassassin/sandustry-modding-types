@@ -17,7 +17,19 @@ export namespace structures {
     export function isEnabledAt(cellX: number, cellY: number): boolean;
   }
 
-  export type Structure = unknown
-  export type StructureType = unknown
-}
+  export interface StructureData {
+    elementId?: string | null;
+    elementType?: number | null;
+    [key: string]: unknown;
+  }
 
+  export interface Structure {
+    x: number;
+    y: number;
+    trapped?: boolean;
+    data?: StructureData;
+    [key: string]: unknown;
+  }
+
+  export type StructureType = string | number
+}

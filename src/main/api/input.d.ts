@@ -10,5 +10,17 @@ export namespace input {
   export function isCtrlHeld(): boolean;
   export function isAltHeld(): boolean;
 
-  export type InputBindingDefinition = unknown
+  export interface InputBindingHandlers {
+    down?: () => void;
+    up?: () => void;
+  }
+
+  export interface InputBindingDefinition {
+    displayName: string;
+    category: string;
+    handlers: InputBindingHandlers;
+
+    // Temporary until we're sure we have the full definition.
+    [key: string]: unknown;
+  }
 }
