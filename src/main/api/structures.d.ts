@@ -53,8 +53,36 @@ export namespace structures {
     export function setEnabledAt(cellX: number, cellY: number, enabled: boolean): boolean;
   }
 
+  export interface StructureBuildMode {
+    type: string;
+    directions?: string[];
+  }
+
+  export interface StructureVariant {
+    id: string | number;
+    angles: number[];
+  }
+
+  export interface StructureRender {
+    imageName?: string;
+    size?: { width: number; height: number };
+    offset?: { x: number; y: number };
+  }
+
+  export interface SandkitStructureDefinition {
+    id: string;
+    nameKey?: string;
+    descriptionKey?: string;
+    categoryKey?: string;
+    order?: number;
+    buildModes?: StructureBuildMode[];
+    shape?: number[][];
+    variants?: StructureVariant[];
+    render?: StructureRender;
+    [key: string]: unknown;
+  }
+
   export type StructureProcessorDefinitionV1 = unknown
-  export type SandkitStructureDefinition = unknown
   export type PlacementConfigDefinition = unknown
   export type PlanterBoxRecipeDefinitionV1 = unknown
   export type ShakerRecipeDefinitionV1 = unknown
@@ -62,4 +90,3 @@ export namespace structures {
   export type WeightedRefineryRecipeDefinitionV1 = unknown
   export type StructureProcessingDefinitionV1 = unknown
 }
-

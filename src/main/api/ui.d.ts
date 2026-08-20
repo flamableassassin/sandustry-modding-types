@@ -20,19 +20,23 @@ export namespace ui {
   }
 
   export namespace navigation {
-    export function useFocusable<T extends HTMLElement = HTMLDivElement>(options: FocusOptions): {
-      readonly ref: RefObject<T>;
-      readonly focused: boolean;
-      readonly focus: () => void;
-    };
+    export function useFocusable<T extends HTMLElement = HTMLDivElement>(options: FocusOptions): Focusable<T>;
     export function useFocusScope(options: { readonly id: string; readonly active: boolean; readonly priority?: number; readonly defaultId?: string; readonly onBack?: (() => boolean | void); }): void;
     export function controllerFocusClass(focused: boolean): string;
   }
 
   export type ComponentId = unknown
   export type TooltipData = unknown
-  export type ComponentType<t> = unknown
-  export type RefObject<t> = unknown
+  export type ComponentType<t> = (props: t) => unknown
+  export interface RefObject<t> {
+    readonly current: t | null;
+  }
+
+  export interface Focusable<T extends HTMLElement = HTMLDivElement> {
+    readonly ref: RefObject<T>;
+    readonly focused: boolean;
+    readonly focus: () => void;
+  }
 
   export interface FocusOptions {
     readonly id: string;
