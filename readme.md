@@ -4,11 +4,11 @@ Community-maintained TypeScript declarations and API reference for Sandustry's
 Sandkit modding API.
 
 - [Browse the generated API reference](https://flamableassassin.github.io/sandustry-modding-types/)
-- [Scan the complete API signature index](docs/api-reference.md)
-- [Learn from practical API examples](docs/api-examples.md)
-- [Create a basic mod](docs/getting-started.md)
-- [Understand the main and worker runtimes](docs/runtime-model.md)
-- [Package assets, maps, patches, and Workshop metadata](docs/mod-packaging.md)
+- [Scan the complete API signature index](./docs/api-reference.md)
+- [Learn from practical API examples](./docs/api-examples.md)
+- [Create a basic mod](./docs/getting-started.md)
+- [Understand the main and worker runtimes](./docs/runtime-model.md)
+- [Package assets, maps, patches, and Workshop metadata](./docs/mod-packaging.md)
 
 ## What this repository provides
 
