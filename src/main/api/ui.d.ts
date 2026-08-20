@@ -1,8 +1,8 @@
-import { ui as sharedUI } from "../../shared/api/ui";
+import type { ComponentType, ReactNode, RefObject } from "react";
 export namespace ui {
-  export import toast = sharedUI.toast
-  export import LocalizedText = sharedUI.LocalizedText
-  export import ToastOptions = sharedUI.ToastOptions
+  export function toast(message: LocalizedText, options?: ToastOptions): void;
+  export type LocalizedText = unknown;
+  export type ToastOptions = unknown;
 
 
   export function update(componentId: ComponentId, options?: any): void;
@@ -14,7 +14,7 @@ export namespace ui {
   export function inject(componentId: string, component: ComponentType<Record<string, never>>): () => void;
 
   export namespace overlays {
-    export function register(slot: string, overlayId: string, render: () => any): void;
+    export function register(slot: string, overlayId: string, render: () => ReactNode): void;
     export function unregister(slot: string, overlayId: string): void;
     export function update(slot: string): void;
   }
@@ -27,11 +27,7 @@ export namespace ui {
 
   export type ComponentId = unknown
   export type TooltipData = unknown
-  export type ComponentType<t> = (props: t) => unknown
-  export interface RefObject<t> {
-    readonly current: t | null;
-  }
-
+  
   export interface Focusable<T extends HTMLElement = HTMLDivElement> {
     readonly ref: RefObject<T>;
     readonly focused: boolean;
