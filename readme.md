@@ -26,7 +26,6 @@ Sandkit or make an API available in the game.
 | --- | --- |
 | `src/main/index.d.ts` | Main-thread APIs such as registration, UI, sprites, and idle-safe world changes |
 | `src/worker/index.d.ts` | Manager/simulation worker APIs and direct worker mutation operations |
-| `src/shared` | Types and read operations shared by both runtimes |
 
 The two runtime APIs overlap, but they are not interchangeable. Check the entry
 point containing a method before using it in `main.js` or `worker.js`.
