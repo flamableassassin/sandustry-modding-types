@@ -1,7 +1,9 @@
 import { AssetRef } from "./asset";
 
+export type CellCoordinates = [cellX: number, cellY: number]
 
-type Vector2 = {
+
+export type Vector2 = {
   x: number;
   y: number;
 };

@@ -1,4 +1,4 @@
-import { Vector2 } from "../../common-types/player";
+import { CellCoordinates, Vector2 } from "../../common-types/player";
 import { structures as sharedStructures } from "../../shared/api/structures";
 
 export namespace structures {
@@ -29,12 +29,12 @@ export namespace structures {
   export function addVariant(baseStructureTypeOrId: string | StructureType, variant: { id: string | StructureType; angles: number[]; }, options?: { addBuildMode?: any; }): void;
   export function registerPlacementConfig(definition: PlacementConfigDefinition): void;
   export function getUnlockedTypes(): Set<string | StructureType>;
-  export function isBlockedByPlayerAtCell(cellX: number, cellY: number): boolean;
-  export function isLauncherAtCell(cellX: number, cellY: number): boolean;
+  export function isBlockedByPlayerAtCell(...args: CellCoordinates): boolean;
+  export function isLauncherAtCell(...args: CellCoordinates): boolean;
   export function isUnlockedByType(structureType: string | StructureType): boolean;
   export function mapValueToSpritesheetIndex(value: number, thresholds: number[]): number;
-  export function buildAtCellWhenIdle(cellX: number, cellY: number, structureTypeOrId: string, options?: any): void;
-  export function removeAtCellWhenIdle(cellX: number, cellY: number, options?: { removeCells?: boolean; skipVisuals?: boolean; }): void;
+  export function buildAtCellWhenIdle(...args: [...CellCoordinates, structureTypeOrId: string, options?: any]): void;
+  export function removeAtCellWhenIdle(...args: [...CellCoordinates, options?: { removeCells?: boolean; skipVisuals?: boolean; }]): void;
   export function removeBetweenCellsWhenIdle(startCellX: number, startCellY: number, endCellX: number, endCellY: number, options?: { removeCells?: boolean; preserveUnselectable?: boolean; onlyPositions?: Vector2[]; }): void;
   export function removeAtCellsWhenIdle(positions: Vector2[], options?: { removeCells?: boolean; skipVisuals?: boolean; }): void;
 
@@ -50,7 +50,7 @@ export namespace structures {
     export import isEnabledAt = sharedStructures.processing.isEnabledAt
 
     export function register(id: string, definition: StructureProcessingDefinitionV1): void;
-    export function setEnabledAt(cellX: number, cellY: number, enabled: boolean): boolean;
+    export function setEnabledAt(...args: [...CellCoordinates, enabled: boolean]): boolean;
   }
 
   export interface StructureBuildMode {

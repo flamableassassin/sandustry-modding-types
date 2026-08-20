@@ -1,3 +1,5 @@
+import { CellCoordinates, Vector2 } from "../../common-types/player";
+
 export namespace building {
   export enum StructureType {
     ConveyorLeft = 1,
@@ -28,8 +30,8 @@ export namespace building {
     Light = 26,
     GloomEmitter = 27,
   }
-  export function getSnappedPositionAtCell(cellX: number, cellY: number): { x: number; y: number; };
-  export function isBlockedAtCell(cellX: number, cellY: number): boolean;
+  export function getSnappedPositionAtCell(...args: CellCoordinates): Vector2;
+  export function isBlockedAtCell(...args: CellCoordinates): boolean;
   export function cancelPlacement(): void;
   export function selectStructure(structureTypeOrId: string | StructureType): string | StructureType | null;
 }

@@ -1,3 +1,4 @@
+import { CellCoordinates, Vector2 } from "../../common-types/player";
 import { elements as sharedElements } from "../../shared/api/elements";
 
 export namespace elements {
@@ -40,19 +41,19 @@ export namespace elements {
   export function updateDefinition(elementTypeOrId: string | ElementType, partial: Partial<ElementDefinition>): void;
   export function addInteractionInfo(elementTypeOrId: string | ElementType, interaction: Interaction): void;
   export function getNameByType(elementType: number): string;
-  export function findFreeCellInStructure(structureCellX: number, structureCellY: number, structureSize: number): { x: number; y: number; } | null;
-  export function createAtCellWhenIdle(cellX: number, cellY: number, elementType: ElementType, options?: ElementCreateOptions): void;
-  export function replaceAtCellWhenIdle(cellX: number, cellY: number, elementType: ElementType, options?: ElementCreateOptions): void;
-  export function removeAtCellWhenIdle(cellX: number, cellY: number, options?: ElementRemovalOptions): void;
+  export function findFreeCellInStructure(structureCellX: number, structureCellY: number, structureSize: number): Vector2 | null;
+  export function createAtCellWhenIdle(...args: [...CellCoordinates, elementType: ElementType, options?: ElementCreateOptions]): void;
+  export function replaceAtCellWhenIdle(...args: [...CellCoordinates, elementType: ElementType, options?: ElementCreateOptions]): void;
+  export function removeAtCellWhenIdle(...args: [...CellCoordinates, options?: ElementRemovalOptions]): void;
   export function teleportBetweenCellsWhenIdle(fromCellX: number, fromCellY: number, toCellX: number, toCellY: number): void;
-  export function setVelocityAtCellWhenIdle(cellX: number, cellY: number, velocity: { x: number; y: number; }): void;
-  export function addParticleVelocityAtCellWhenIdle(cellX: number, cellY: number, velocity: { x: number; y: number; }, maxSpeed?: number): void;
-  export function convertToParticleAtCellWhenIdle(cellX: number, cellY: number, velocity: { x: number; y: number; }): void;
-  export function convertFromParticleAtCellWhenIdle(cellX: number, cellY: number): void;
-  export function setDataFieldAtCellWhenIdle(cellX: number, cellY: number, fieldNumber: 1 | 2 | 3 | 4, value: number): void;
-  export function refreshColorAtCellWhenIdle(cellX: number, cellY: number): void;
-  export function setPhysicsAtCellWhenIdle(cellX: number, cellY: number, physicsState: number): void;
-  export function setDurationAtCellWhenIdle(cellX: number, cellY: number, duration: number, options?: { updateMax?: boolean; }): void;
+  export function setVelocityAtCellWhenIdle(...args: [...CellCoordinates, velocity: Vector2]): void;
+  export function addParticleVelocityAtCellWhenIdle(...args: [...CellCoordinates, velocity: Vector2, maxSpeed?: number]): void;
+  export function convertToParticleAtCellWhenIdle(...args: [...CellCoordinates, velocity: Vector2]): void;
+  export function convertFromParticleAtCellWhenIdle(...args: CellCoordinates): void;
+  export function setDataFieldAtCellWhenIdle(...args: [...CellCoordinates, fieldNumber: 1 | 2 | 3 | 4, value: number]): void;
+  export function refreshColorAtCellWhenIdle(...args: CellCoordinates): void;
+  export function setPhysicsAtCellWhenIdle(...args: [...CellCoordinates, physicsState: number]): void;
+  export function setDurationAtCellWhenIdle(...args: [...CellCoordinates, duration: number, options?: { updateMax?: boolean; }]): void;
 
   export type ElementCreateOptions = unknown
   export type ElementRemovalOptions = unknown

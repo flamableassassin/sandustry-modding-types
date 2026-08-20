@@ -1,3 +1,5 @@
+import { CellCoordinates } from "../../common-types/player";
+
 export namespace elements {
   export type ElementType = number;
   export enum MatterType {
@@ -30,14 +32,14 @@ export namespace elements {
 
   export function getTypeFromId(elementId: string): ElementType;
   export function getDefinitionByType(elementType: ElementType): ElementDefinition | undefined;
-  export function getTypeAtCell(cellX: number, cellY: number): ElementType | null;
-  export function getResolvedTypeAtCell(cellX: number, cellY: number): ElementType | null;
+  export function getTypeAtCell(...args: CellCoordinates): ElementType | null;
+  export function getResolvedTypeAtCell(...args: CellCoordinates): ElementType | null;
   export function getResolvedTypeFromCellId(cellId: number): ElementType | null;
-  export function getInfoAtCell(cellX: number, cellY: number): { elementType: ElementType; isParticle: boolean; cellId: number; elementIndex: number; } | null;
-  export function getMatterTypeAtCell(cellX: number, cellY: number): MatterType | null;
-  export function isTypeAtCell(cellX: number, cellY: number, elementType: ElementType): boolean;
-  export function isFreeFallingAtCell(cellX: number, cellY: number): boolean;
-  export function getVelocityAtCell(cellX: number, cellY: number): { x: number; y: number; } | null;
-  export function getDataFieldAtCell(cellX: number, cellY: number, fieldNumber: 1 | 2 | 3 | 4): number | null;
+  export function getInfoAtCell(...args: CellCoordinates): { elementType: ElementType; isParticle: boolean; cellId: number; elementIndex: number; } | null;
+  export function getMatterTypeAtCell(...args: CellCoordinates): MatterType | null;
+  export function isTypeAtCell(...args: [...CellCoordinates, elementType: ElementType]): boolean;
+  export function isFreeFallingAtCell(...args: CellCoordinates): boolean;
+  export function getVelocityAtCell(...args: CellCoordinates): { x: number; y: number; } | null;
+  export function getDataFieldAtCell(...args: [...CellCoordinates, fieldNumber: 1 | 2 | 3 | 4]): number | null;
 }
 
