@@ -15,6 +15,10 @@ on:
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
+permissions:
+  contents: write
+  pull-requests: write
+
 concurrency: preview-${{ github.ref }}
 
 jobs:
