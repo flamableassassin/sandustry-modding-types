@@ -1,4 +1,4 @@
-import type { Vector2 } from "../shared-types/player";
+import type { Vector2 } from "../../common-types/player";
 
 export namespace structureBehaviors {
   export function registerConveyorType(structureId: string, options?: { transportOffset?: Vector2; velocity?: Vector2; maxTransportDistance?: number; transportHeight?: number; runWith?: 'left' | 'right'; skipQueued?: boolean; }): void;

@@ -1,4 +1,4 @@
-import type { Vector2 } from "../shared-types/player";
+import type { Vector2 } from "../../common-types/player";
 
 export namespace utils {
   export function getDistance(pointA: Vector2, pointB: Vector2): number;

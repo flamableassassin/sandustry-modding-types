@@ -1,7 +1,11 @@
+import { maps as sharedMaps } from "../../shared/api/maps";
+
 export namespace maps {
-  export function getActive(): Readonly<ActiveMapV1> | null;
+  // Shared
+  export import getActive = sharedMaps.getActive
+  export import ActiveMapV1 = sharedMaps.ActiveMapV1
+
   export function getAvailable(): readonly Readonly<AvailableMapV1>[];
   export function start(mapId: string): boolean;
-  export type ActiveMapV1 = unknown
   export type AvailableMapV1 = unknown
 }

@@ -1,4 +1,4 @@
-import { AssetRef } from "../shared-types/asset";
+import { AssetRef } from "../../common-types/asset";
 
 
 export declare namespace action {

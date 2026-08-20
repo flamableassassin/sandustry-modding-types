@@ -1,12 +1,16 @@
-import type { Vector2 } from "../shared-types/player";
+import { world as sharedWorld } from "../../shared/api/world"
 
 export namespace world {
-  export function getCellIdAtCell(cellX: number, cellY: number): number;
-  export function isCellEmptyAtCell(cellX: number, cellY: number): boolean;
-  export function isTerrainAtCell(cellX: number, cellY: number): boolean;
+
+  export import getCellIdAtCell = sharedWorld.getCellIdAtCell
+  export import isCellEmptyAtCell = sharedWorld.isCellEmptyAtCell
+  export import isTerrainAtCell = sharedWorld.isTerrainAtCell
+  export import reportActivityAtCell = sharedWorld.reportActivityAtCell
+  export import excavateAtCell = sharedWorld.excavateAtCell
+  export import ExcavateOptions = sharedWorld.ExcavateOptions
+
+
   export function runWhenSimulationIdle(callback: () => void): void;
-  export function reportActivityAtCell(cellX: number, cellY: number): void;
-  export function excavateAtCell(cellX: number, cellY: number, outVelocity: Vector2, damage: number, options?: ExcavateOptions): void;
   export function revealFogAtCell(cellX: number, cellY: number): void;
   export function redrawAroundCellWhenIdle(cellX: number, cellY: number, range: number): void;
 
@@ -18,7 +22,6 @@ export namespace world {
     export function getById(worldItemId: number): any;
   }
 
-  export type ExcavateOptions = unknown
   export type WorldItemType = unknown
   export type WorldItemLight = unknown
 }

@@ -1,4 +1,4 @@
-import { Player } from "../shared-types/player";
+import { Player } from "../../common-types/player";
 
 export namespace authorization {
   export function canBuildAtCell(cellX: number, cellY: number): boolean;

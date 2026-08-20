@@ -1,19 +1,10 @@
-import type { Vector2 } from "../shared-types/player";
+import type { Vector2 } from "../../common-types/player";
 
 export namespace effects {
   export function createLightAtWorld(worldX: number, worldY: number, options?: TemporaryLightOptions): { index: number | null; };
   export function createParticlesAtWorld(worldX: number, worldY: number, options?: ParticleEffectOptions): void;
-  export function createDistortionWaveAtWorld(worldX: number, worldY: number, options?: DistortionEffectOptions): void;
   export function createEffectAtWorld(effectId: "heatWave", worldX: number, worldY: number, options?: EffectOptions): void;
-  export function createLaserAtWorld(startWorldX: number, startWorldY: number, endWorldX: number, endWorldY: number, options?: LaserEffectOptions): any;
-  export function removeLightById(lightId: number): void;
 
-  export interface LaserEffectOptions {
-    width?: number;
-    brightness?: number;
-    color?: number;
-    glow?: boolean;
-  }
   export interface EffectOptions {
     duration?: number,
     maxRadius?: number,
@@ -50,13 +41,5 @@ export namespace effects {
     fadeStart?: number,
     fadeEnd?: number,
     damp?: number,
-  }
-
-  export interface DistortionEffectOptions {
-    style?: 'implode' | 'explode';
-    duration?: number;
-    maxRadius?: number;
-    intensity?: number;
-    color?: [number, number, number, number];
   }
 }

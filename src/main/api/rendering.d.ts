@@ -1,4 +1,4 @@
-import type { Vector2 } from "../shared-types/player";
+import type { Vector2 } from "../../common-types/player";
 
 export namespace rendering {
   export function getDrawPositionAtCell(cellX: number, cellY: number): Vector2;

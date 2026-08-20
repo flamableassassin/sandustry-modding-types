@@ -1,8 +1,13 @@
+import { ui as sharedUI } from "../../shared/api/ui";
 export namespace ui {
+  export import toast = sharedUI.toast
+  export import LocalizedText = sharedUI.LocalizedText
+  export import ToastOptions = sharedUI.ToastOptions
+
+
   export function update(componentId: ComponentId, options?: any): void;
   export function openPauseMenu(): void;
   export function showTooltip(data: TooltipData): void;
-  export function toast(message: LocalizedText, options?: ToastOptions): void;
   export function alert(message: LocalizedText, title?: LocalizedText): Promise<void>;
   export function confirm(message: LocalizedText, title?: LocalizedText): Promise<boolean>;
   export function prompt(message: LocalizedText, defaultValue?: string, placeholder?: LocalizedText, title?: LocalizedText, allowCopy?: boolean): Promise<string | null>;
@@ -26,8 +31,6 @@ export namespace ui {
 
   export type ComponentId = unknown
   export type TooltipData = unknown
-  export type LocalizedText = unknown
-  export type ToastOptions = unknown
   export type ComponentType<t> = unknown
   export type RefObject<t> = unknown
 
