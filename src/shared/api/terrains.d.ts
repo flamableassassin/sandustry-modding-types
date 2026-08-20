@@ -1,14 +1,16 @@
+import { CellCoordinates } from "../../common-types/player";
+
 export namespace terrains {
   export function getTypeFromId(terrainId: string): number;
-  export function getTypeAtCell(cellX: number, cellY: number): number | null;
-  export function getDataAtCell(cellX: number, cellY: number): { cellType: number; hp: number | null; } | null;
-  export function isAtCell(cellX: number, cellY: number): boolean;
-  export function isTypeAtCell(cellX: number, cellY: number, terrainId: string): boolean;
+  export function getTypeAtCell(...args: CellCoordinates): number | null;
+  export function getDataAtCell(...args: CellCoordinates): { cellType: number; hp: number | null; } | null;
+  export function isAtCell(...args: CellCoordinates): boolean;
+  export function isTypeAtCell(...args: [...CellCoordinates, terrainId: string]): boolean;
   export function isCellIdTerrain(cellId: number): boolean;
-  export function damageAtCell(cellX: number, cellY: number, damage: number): void;
-  export function createAtCell(cellX: number, cellY: number, terrainTypeOrId: string | number, options?: TerrainMutationOptions): void;
-  export function replaceAtCell(cellX: number, cellY: number, terrainTypeOrId: string | number, options?: TerrainMutationOptions): void;
-  export function removeAtCell(cellX: number, cellY: number, options?: TerrainMutationOptions): void
+  export function damageAtCell(...args: [...CellCoordinates, damage: number]): void;
+  export function createAtCell(...args: [...CellCoordinates, terrainTypeOrId: string | number, options?: TerrainMutationOptions]): void;
+  export function replaceAtCell(...args: [...CellCoordinates, terrainTypeOrId: string | number, options?: TerrainMutationOptions]): void;
+  export function removeAtCell(...args: [...CellCoordinates, options?: TerrainMutationOptions]): void
 
   export type TerrainMutationOptions = unknown
 }

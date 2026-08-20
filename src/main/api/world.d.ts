@@ -1,3 +1,4 @@
+import { CellCoordinates } from "../../common-types/player"
 import { world as sharedWorld } from "../../shared/api/world"
 
 export namespace world {
@@ -11,8 +12,8 @@ export namespace world {
 
 
   export function runWhenSimulationIdle(callback: () => void): void;
-  export function revealFogAtCell(cellX: number, cellY: number): void;
-  export function redrawAroundCellWhenIdle(cellX: number, cellY: number, range: number): void;
+  export function revealFogAtCell(...args: CellCoordinates): void;
+  export function redrawAroundCellWhenIdle(...args: [...CellCoordinates, range: number]): void;
 
   export namespace pickups {
     export function spawnAtWorld(type: WorldItemType, worldX: number, worldY: number, data?: any, light?: WorldItemLight): any;

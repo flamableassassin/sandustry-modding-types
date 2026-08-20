@@ -1,5 +1,7 @@
+import { CellCoordinates } from "../../common-types/player";
+
 export namespace fire {
-  export function canBurnElementAtCell(cellX: number, cellY: number): boolean;
-  export function burnElementAtCellWhenIdle(cellX: number, cellY: number): void;
-  export function burnElementAtCell(cellX: number, cellY: number): boolean;
+  export function canBurnElementAtCell(...args: CellCoordinates): boolean;
+  export function burnElementAtCellWhenIdle(...args: CellCoordinates): void;
+  export function burnElementAtCell(...args: CellCoordinates): boolean;
 }
