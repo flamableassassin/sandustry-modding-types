@@ -1,17 +1,31 @@
 {
   "$schema": "https://typedoc.org/schema.json",
+  "name": "Sandustry Modding Types",
   "entryPoints": [
     "./src/main/index.d.ts",
     "./src/worker/index.d.ts",
     "./src/engine/index.d.ts",
     "./src/sandkit.d.ts"
   ],
+  "entryPointStrategy": "resolve",
   "plugin": [
     "typedoc-plugin-missing-exports"
   ],
   "internalModule": "Types",
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "readme": "./readme.md",
   "out": "dist",
   "projectDocuments": [
     "docs/*.md"
-  ]
+  ],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
+  "categorizeByGroup": true,
+  "validation": {
+    "invalidLink": true,
+    "notDocumented": false
+  }
 }

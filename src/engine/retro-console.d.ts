@@ -1,5 +1,7 @@
 /**
  * In-world Retro Console shapes used by `sandkit.engine.api.retroConsole`.
+ *
+ * Register games through {@link RetroConsoleApi.registerGame}.
  */
 
 export type RetroConsolePixel = boolean | number;

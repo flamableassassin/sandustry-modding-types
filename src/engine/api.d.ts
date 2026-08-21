@@ -1,9 +1,9 @@
 /**
- * `sandkit.engine` shapes.
+ * `sandkit.engine.api` namespaces.
  *
- * Prefer `sandkit.api` when a method exists there. Engine methods usually
- * take the game state as the first argument and use shorter names.
- * Engine-only namespaces below are stubs (`unknown`) until confirmed.
+ * Prefer {@link main | sandkit.api (main)} when a method exists there.
+ * Engine methods usually take the game state as the first argument and use
+ * shorter names. Engine-only members below are stubs until confirmed.
  */
 
 import type { RetroConsoleApi } from "./retro-console";
@@ -14,290 +14,332 @@ export type EngineFn = (...args: unknown[]) => unknown;
 /** Loose bag for namespaces that overlap `sandkit.api` (different names / state-first). */
 export type EngineOverlapNs = Record<string, EngineFn | Record<string, unknown> | unknown>;
 
-export interface EngineAugmentsNs {
-  getDigLevel: EngineFn;
-  getGunLevel: EngineFn;
-  getPhaseLevel: EngineFn;
-  getRocketAmmoLevel: EngineFn;
-  getRocketReloadLevel: EngineFn;
-  getSprintCapLevel: EngineFn;
-  hasBigDig: EngineFn;
-  hasBulletSpeed: EngineFn;
-  hasBulletTracer: EngineFn;
-  hasKickstartBoost: EngineFn;
-  hasPhaseDash: EngineFn;
-  hasPhaseDashCharge: EngineFn;
-  hasRideBoost: EngineFn;
-  hasRocketDamage: EngineFn;
-  hasRocketWarhead: EngineFn;
-  hasSprintPower: EngineFn;
-  hasTripleShot: EngineFn;
+/** Engine-only: `sandkit.engine.api.augments`. */
+export namespace augments {
+  export function getDigLevel(...args: unknown[]): unknown;
+  export function getGunLevel(...args: unknown[]): unknown;
+  export function getPhaseLevel(...args: unknown[]): unknown;
+  export function getRocketAmmoLevel(...args: unknown[]): unknown;
+  export function getRocketReloadLevel(...args: unknown[]): unknown;
+  export function getSprintCapLevel(...args: unknown[]): unknown;
+  export function hasBigDig(...args: unknown[]): unknown;
+  export function hasBulletSpeed(...args: unknown[]): unknown;
+  export function hasBulletTracer(...args: unknown[]): unknown;
+  export function hasKickstartBoost(...args: unknown[]): unknown;
+  export function hasPhaseDash(...args: unknown[]): unknown;
+  export function hasPhaseDashCharge(...args: unknown[]): unknown;
+  export function hasRideBoost(...args: unknown[]): unknown;
+  export function hasRocketDamage(...args: unknown[]): unknown;
+  export function hasRocketWarhead(...args: unknown[]): unknown;
+  export function hasSprintPower(...args: unknown[]): unknown;
+  export function hasTripleShot(...args: unknown[]): unknown;
 }
 
-export interface EngineAuraliteNs {
-  ensureProducedAtLeast: EngineFn;
-  getProduced: EngineFn;
+/** Engine-only: `sandkit.engine.api.auralite`. */
+export namespace auralite {
+  export function ensureProducedAtLeast(...args: unknown[]): unknown;
+  export function getProduced(...args: unknown[]): unknown;
 }
 
-export interface EngineBlueprintsNs {
-  delete: EngineFn;
-  exportAllString: EngineFn;
-  exportString: EngineFn;
-  getAll: EngineFn;
-  importString: EngineFn;
-  load: EngineFn;
-  save: EngineFn;
+/** Engine-only: `sandkit.engine.api.blueprints`. */
+export namespace blueprints {
+  /** Runtime property name is `delete`. */
+  function _delete(...args: unknown[]): unknown;
+  export { _delete as delete };
+  export function exportAllString(...args: unknown[]): unknown;
+  export function exportString(...args: unknown[]): unknown;
+  export function getAll(...args: unknown[]): unknown;
+  export function importString(...args: unknown[]): unknown;
+  export function load(...args: unknown[]): unknown;
+  export function save(...args: unknown[]): unknown;
 }
 
-export interface EngineClipboardNs {
-  activate: EngineFn;
-  clear: EngineFn;
-  get: EngineFn;
-  getHistory: EngineFn;
-  getSignalLinks: EngineFn;
-  selectFromHistory: EngineFn;
-  set: EngineFn;
+/** Engine-only: `sandkit.engine.api.clipboard`. */
+export namespace clipboard {
+  export function activate(...args: unknown[]): unknown;
+  export function clear(...args: unknown[]): unknown;
+  export function get(...args: unknown[]): unknown;
+  export function getHistory(...args: unknown[]): unknown;
+  export function getSignalLinks(...args: unknown[]): unknown;
+  export function selectFromHistory(...args: unknown[]): unknown;
+  export function set(...args: unknown[]): unknown;
 }
 
-export interface EngineColorPickerNs {
-  CYCLE_COLOR: unknown;
-  NO_COLOR: unknown;
-  PREDEFINED_COLORS: unknown;
-  RANDOM_COLOR: unknown;
-  closePalette: EngineFn;
-  getActivePalette: EngineFn;
-  getCycleColor: EngineFn;
-  getRandomColor: EngineFn;
-  hexToRgba: EngineFn;
-  renderColorButton: EngineFn;
-  renderColorSection: EngineFn;
-  renderPalette: EngineFn;
-  rgbaToHex: EngineFn;
-  setActivePalette: EngineFn;
-  togglePalette: EngineFn;
+/** Engine-only: `sandkit.engine.api.colorPicker`. */
+export namespace colorPicker {
+  export const CYCLE_COLOR: unknown;
+  export const NO_COLOR: unknown;
+  export const PREDEFINED_COLORS: unknown;
+  export const RANDOM_COLOR: unknown;
+  export function closePalette(...args: unknown[]): unknown;
+  export function getActivePalette(...args: unknown[]): unknown;
+  export function getCycleColor(...args: unknown[]): unknown;
+  export function getRandomColor(...args: unknown[]): unknown;
+  export function hexToRgba(...args: unknown[]): unknown;
+  export function renderColorButton(...args: unknown[]): unknown;
+  export function renderColorSection(...args: unknown[]): unknown;
+  export function renderPalette(...args: unknown[]): unknown;
+  export function rgbaToHex(...args: unknown[]): unknown;
+  export function setActivePalette(...args: unknown[]): unknown;
+  export function togglePalette(...args: unknown[]): unknown;
 }
 
-export interface EngineColoringToolNs {
-  colorStructure: EngineFn;
-  floodFillColor: EngineFn;
-  getColor: EngineFn;
-  isColorableStructure: EngineFn;
-  isMatchColorMode: EngineFn;
-  isPaintBucketMode: EngineFn;
-  setColor: EngineFn;
-  toggleMatchColorMode: EngineFn;
-  togglePaintBucketMode: EngineFn;
+/** Engine-only: `sandkit.engine.api.coloringTool`. */
+export namespace coloringTool {
+  export function colorStructure(...args: unknown[]): unknown;
+  export function floodFillColor(...args: unknown[]): unknown;
+  export function getColor(...args: unknown[]): unknown;
+  export function isColorableStructure(...args: unknown[]): unknown;
+  export function isMatchColorMode(...args: unknown[]): unknown;
+  export function isPaintBucketMode(...args: unknown[]): unknown;
+  export function setColor(...args: unknown[]): unknown;
+  export function toggleMatchColorMode(...args: unknown[]): unknown;
+  export function togglePaintBucketMode(...args: unknown[]): unknown;
 }
 
-export interface EngineConveyorsNs {
-  registerType: EngineFn;
+/** Engine-only: `sandkit.engine.api.conveyors`. */
+export namespace conveyors {
+  export function registerType(...args: unknown[]): unknown;
 }
 
-export interface EngineDebugNs {
-  register: EngineFn;
+/** Engine-only: `sandkit.engine.api.debug`. */
+export namespace debug {
+  export function register(...args: unknown[]): unknown;
 }
 
-export interface EngineDronesNs {
-  kill: EngineFn;
-  spawn: EngineFn;
+/** Engine-only: `sandkit.engine.api.drones`. */
+export namespace drones {
+  export function kill(...args: unknown[]): unknown;
+  export function spawn(...args: unknown[]): unknown;
 }
 
-export interface EngineEntitiesNs {
-  createLight: EngineFn;
-  getAll: EngineFn;
-  getAllByType: EngineFn;
-  getAllTypeDefs: EngineFn;
-  getSprite: EngineFn;
-  getTypeDef: EngineFn;
-  launch: EngineFn;
-  registerSpawner: EngineFn;
-  registerType: EngineFn;
-  spawn: EngineFn;
-  startCapture: EngineFn;
+/** Engine-only: `sandkit.engine.api.entities`. */
+export namespace entities {
+  export function createLight(...args: unknown[]): unknown;
+  export function getAll(...args: unknown[]): unknown;
+  export function getAllByType(...args: unknown[]): unknown;
+  export function getAllTypeDefs(...args: unknown[]): unknown;
+  export function getSprite(...args: unknown[]): unknown;
+  export function getTypeDef(...args: unknown[]): unknown;
+  export function launch(...args: unknown[]): unknown;
+  export function registerSpawner(...args: unknown[]): unknown;
+  export function registerType(...args: unknown[]): unknown;
+  export function spawn(...args: unknown[]): unknown;
+  export function startCapture(...args: unknown[]): unknown;
 }
 
-export interface EngineExtensionsNs {
-  define: EngineFn;
+/** Engine-only: `sandkit.engine.api.extensions`. */
+export namespace extensions {
+  export function define(...args: unknown[]): unknown;
 }
 
-export interface EngineFactoryNs {
-  addViabilityGold: EngineFn;
-  canUnlockNextTier: EngineFn;
-  ensureProcessAtLeast: EngineFn;
-  flushDeferredLevelUps: EngineFn;
-  getLevel: EngineFn;
-  getProcessCount: EngineFn;
-  getProcessRate: EngineFn;
-  recordProcess: EngineFn;
-  unlockNextTier: EngineFn;
+/** Engine-only: `sandkit.engine.api.factory`. */
+export namespace factory {
+  export function addViabilityGold(...args: unknown[]): unknown;
+  export function canUnlockNextTier(...args: unknown[]): unknown;
+  export function ensureProcessAtLeast(...args: unknown[]): unknown;
+  export function flushDeferredLevelUps(...args: unknown[]): unknown;
+  export function getLevel(...args: unknown[]): unknown;
+  export function getProcessCount(...args: unknown[]): unknown;
+  export function getProcessRate(...args: unknown[]): unknown;
+  export function recordProcess(...args: unknown[]): unknown;
+  export function unlockNextTier(...args: unknown[]): unknown;
 }
 
-export interface EngineFoliageNs {
-  generate: EngineFn;
-  getClusters: EngineFn;
-  getContainer: EngineFn;
-  hasProcgenData: EngineFn;
+/** Engine-only: `sandkit.engine.api.foliage`. */
+export namespace foliage {
+  export function generate(...args: unknown[]): unknown;
+  export function getClusters(...args: unknown[]): unknown;
+  export function getContainer(...args: unknown[]): unknown;
+  export function hasProcgenData(...args: unknown[]): unknown;
 }
 
-export interface EngineFoundationColorPickerNs {
-  getColor: EngineFn;
+/** Engine-only: `sandkit.engine.api.foundationColorPicker`. */
+export namespace foundationColorPicker {
+  export function getColor(...args: unknown[]): unknown;
 }
 
-export interface EngineGameNs {
-  load: EngineFn;
-  save: EngineFn;
-  start: EngineFn;
+/** Engine-only: `sandkit.engine.api.game`. */
+export namespace game {
+  export function load(...args: unknown[]): unknown;
+  export function save(...args: unknown[]): unknown;
+  export function start(...args: unknown[]): unknown;
 }
 
-export interface EngineHeatTransferNs {
-  absorbAdjacentElements: EngineFn;
-  addTemperature: EngineFn;
-  computeDiffusedTemperatures: EngineFn;
-  computeEqualizedTemperature: EngineFn;
-  consumeTemperatureNear: EngineFn;
-  ensureTemperature: EngineFn;
-  equalizeConnected: EngineFn;
+/** Engine-only: `sandkit.engine.api.heatTransfer`. */
+export namespace heatTransfer {
+  export function absorbAdjacentElements(...args: unknown[]): unknown;
+  export function addTemperature(...args: unknown[]): unknown;
+  export function computeDiffusedTemperatures(...args: unknown[]): unknown;
+  export function computeEqualizedTemperature(...args: unknown[]): unknown;
+  export function consumeTemperatureNear(...args: unknown[]): unknown;
+  export function ensureTemperature(...args: unknown[]): unknown;
+  export function equalizeConnected(...args: unknown[]): unknown;
 }
 
-export interface EngineLaunchersNs {
-  registerType: EngineFn;
+/** Engine-only: `sandkit.engine.api.launchers`. */
+export namespace launchers {
+  export function registerType(...args: unknown[]): unknown;
 }
 
-export interface EngineLightColorPickerNs {
-  getColor: EngineFn;
+/** Engine-only: `sandkit.engine.api.lightColorPicker`. */
+export namespace lightColorPicker {
+  export function getColor(...args: unknown[]): unknown;
 }
 
-export interface EngineMattersNs {
-  getMatterTypeFromId: EngineFn;
-  register: EngineFn;
-  runSolidUpdate: EngineFn;
+/** Engine-only: `sandkit.engine.api.matters`. */
+export namespace matters {
+  export function getMatterTypeFromId(...args: unknown[]): unknown;
+  export function register(...args: unknown[]): unknown;
+  export function runSolidUpdate(...args: unknown[]): unknown;
 }
 
-export interface EngineMiscNs {
-  register: EngineFn;
+/** Engine-only: `sandkit.engine.api.misc`. */
+export namespace misc {
+  export function register(...args: unknown[]): unknown;
 }
 
-export interface EnginePortalsNs {
-  getMarkers: EngineFn;
+/** Engine-only: `sandkit.engine.api.portals`. */
+export namespace portals {
+  export function getMarkers(...args: unknown[]): unknown;
 }
 
-export interface EnginePrefabDataNs {
-  getAll: EngineFn;
-  getAllMetadata: EngineFn;
-  getArtifactLocations: EngineFn;
-  getAtCell: EngineFn;
-  getMetadata: EngineFn;
+/** Engine-only: `sandkit.engine.api.prefabData`. */
+export namespace prefabData {
+  export function getAll(...args: unknown[]): unknown;
+  export function getAllMetadata(...args: unknown[]): unknown;
+  export function getArtifactLocations(...args: unknown[]): unknown;
+  export function getAtCell(...args: unknown[]): unknown;
+  export function getMetadata(...args: unknown[]): unknown;
 }
 
-export interface EnginePrefabDecorNs {
-  getPlacementByName: EngineFn;
-  replaceDecor: EngineFn;
+/** Engine-only: `sandkit.engine.api.prefabDecor`. */
+export namespace prefabDecor {
+  export function getPlacementByName(...args: unknown[]): unknown;
+  export function replaceDecor(...args: unknown[]): unknown;
 }
 
-export interface EnginePrefabulatorNs {
-  localizeBlueprintStructures: EngineFn;
-  serializeBlueprintStructures: EngineFn;
+/** Engine-only: `sandkit.engine.api.prefabulator`. */
+export namespace prefabulator {
+  export function localizeBlueprintStructures(...args: unknown[]): unknown;
+  export function serializeBlueprintStructures(...args: unknown[]): unknown;
 }
 
-export interface EnginePrismalineNs {
-  consume: EngineFn;
-  getAvailable: EngineFn;
-  getConsumed: EngineFn;
+/** Engine-only: `sandkit.engine.api.prismaline`. */
+export namespace prismaline {
+  export function consume(...args: unknown[]): unknown;
+  export function getAvailable(...args: unknown[]): unknown;
+  export function getConsumed(...args: unknown[]): unknown;
 }
 
-export interface EnginePrismiteNs {
-  consume: EngineFn;
-  getAvailable: EngineFn;
-  getConsumed: EngineFn;
+/** Engine-only: `sandkit.engine.api.prismite`. */
+export namespace prismite {
+  export function consume(...args: unknown[]): unknown;
+  export function getAvailable(...args: unknown[]): unknown;
+  export function getConsumed(...args: unknown[]): unknown;
 }
 
-export interface EngineQueueNs {
-  enqueue: EngineFn;
-  enqueueInTicks: EngineFn;
-  enqueueSkipTick: EngineFn;
-  process: EngineFn;
-  registerHandler: EngineFn;
-  removeByKey: EngineFn;
+/** Engine-only: `sandkit.engine.api.queue`. */
+export namespace queue {
+  export function enqueue(...args: unknown[]): unknown;
+  export function enqueueInTicks(...args: unknown[]): unknown;
+  export function enqueueSkipTick(...args: unknown[]): unknown;
+  export function process(...args: unknown[]): unknown;
+  export function registerHandler(...args: unknown[]): unknown;
+  export function removeByKey(...args: unknown[]): unknown;
 }
 
-export interface EngineShadowsNs {
-  refresh: EngineFn;
-  refreshRadius: EngineFn;
-  refreshRect: EngineFn;
+/** Engine-only: `sandkit.engine.api.shadows`. */
+export namespace shadows {
+  export function refresh(...args: unknown[]): unknown;
+  export function refreshRadius(...args: unknown[]): unknown;
+  export function refreshRect(...args: unknown[]): unknown;
 }
 
-export interface EngineStrataformNs {
-  getDefaultConfig: EngineFn;
-  getRegisteredTypes: EngineFn;
-  registerType: EngineFn;
-  trigger: EngineFn;
-  triggerByType: EngineFn;
+/** Engine-only: `sandkit.engine.api.strataform`. */
+export namespace strataform {
+  export function getDefaultConfig(...args: unknown[]): unknown;
+  export function getRegisteredTypes(...args: unknown[]): unknown;
+  export function registerType(...args: unknown[]): unknown;
+  export function trigger(...args: unknown[]): unknown;
+  export function triggerByType(...args: unknown[]): unknown;
 }
 
-export interface EngineSwarmConsoleNs {
-  decrementConvergenceBuffer: EngineFn;
-  getCrystalMined: EngineFn;
-  getDiskRadiusCells: EngineFn;
-  getEntityType: EngineFn;
-  getNearestConvergence: EngineFn;
-  getPendingConvergence: EngineFn;
-  getPlacedConsoles: EngineFn;
-  getRadiusPx: EngineFn;
-  isSpawnJammed: EngineFn;
-  registerEntityType: EngineFn;
-  resetAllConvergenceBuffers: EngineFn;
-  setSpawnJammed: EngineFn;
+/** Engine-only: `sandkit.engine.api.swarmConsole`. */
+export namespace swarmConsole {
+  export function decrementConvergenceBuffer(...args: unknown[]): unknown;
+  export function getCrystalMined(...args: unknown[]): unknown;
+  export function getDiskRadiusCells(...args: unknown[]): unknown;
+  export function getEntityType(...args: unknown[]): unknown;
+  export function getNearestConvergence(...args: unknown[]): unknown;
+  export function getPendingConvergence(...args: unknown[]): unknown;
+  export function getPlacedConsoles(...args: unknown[]): unknown;
+  export function getRadiusPx(...args: unknown[]): unknown;
+  export function isSpawnJammed(...args: unknown[]): unknown;
+  export function registerEntityType(...args: unknown[]): unknown;
+  export function resetAllConvergenceBuffers(...args: unknown[]): unknown;
+  export function setSpawnJammed(...args: unknown[]): unknown;
 }
 
-export interface EngineSweeperDroneNs {
-  cancelSelection: EngineFn;
+/** Engine-only: `sandkit.engine.api.sweeperDrone`. */
+export namespace sweeperDrone {
+  export function cancelSelection(...args: unknown[]): unknown;
 }
 
-export interface EngineTeleportZonesNs {
-  add: EngineFn;
-  getAll: EngineFn;
-  getAtCell: EngineFn;
-  getById: EngineFn;
-  remove: EngineFn;
-  spawnDefaultParticles: EngineFn;
-  teleportPlayerTo: EngineFn;
+/** Engine-only: `sandkit.engine.api.teleportZones`. */
+export namespace teleportZones {
+  export function add(...args: unknown[]): unknown;
+  export function getAll(...args: unknown[]): unknown;
+  export function getAtCell(...args: unknown[]): unknown;
+  export function getById(...args: unknown[]): unknown;
+  export function remove(...args: unknown[]): unknown;
+  export function spawnDefaultParticles(...args: unknown[]): unknown;
+  export function teleportPlayerTo(...args: unknown[]): unknown;
 }
 
-export interface EngineTutorialBuildNs {
-  areAllTargetsBuilt: EngineFn;
-  areFamilyTargetsBuilt: EngineFn;
-  canPlaceAtActiveTarget: EngineFn;
-  getFoundationMoveDests: EngineFn;
-  getFoundationMoveSources: EngineFn;
-  getTargets: EngineFn;
-  hasDefinition: EngineFn;
-  isStepConstrained: EngineFn;
-  matchesFoundationMove: EngineFn;
-  matchesFoundationRemove: EngineFn;
-  shouldProtectActiveTargetAt: EngineFn;
+/** Engine-only: `sandkit.engine.api.tutorialBuild`. */
+export namespace tutorialBuild {
+  export function areAllTargetsBuilt(...args: unknown[]): unknown;
+  export function areFamilyTargetsBuilt(...args: unknown[]): unknown;
+  export function canPlaceAtActiveTarget(...args: unknown[]): unknown;
+  export function getFoundationMoveDests(...args: unknown[]): unknown;
+  export function getFoundationMoveSources(...args: unknown[]): unknown;
+  export function getTargets(...args: unknown[]): unknown;
+  export function hasDefinition(...args: unknown[]): unknown;
+  export function isStepConstrained(...args: unknown[]): unknown;
+  export function matchesFoundationMove(...args: unknown[]): unknown;
+  export function matchesFoundationRemove(...args: unknown[]): unknown;
+  export function shouldProtectActiveTargetAt(...args: unknown[]): unknown;
 }
 
-export interface EngineUsageTrackerNs {
-  clear: EngineFn;
-  getLatest: EngineFn;
-  getMostUsed: EngineFn;
+/** Engine-only: `sandkit.engine.api.usageTracker`. */
+export namespace usageTracker {
+  export function clear(...args: unknown[]): unknown;
+  export function getLatest(...args: unknown[]): unknown;
+  export function getMostUsed(...args: unknown[]): unknown;
 }
 
-export interface EngineWallNs {
-  getPaletteData: EngineFn;
-  getWallDataAt: EngineFn;
-  getWallDataSize: EngineFn;
-  setWallDataAt: EngineFn;
+/** Engine-only: `sandkit.engine.api.wall`. */
+export namespace wall {
+  export function getPaletteData(...args: unknown[]): unknown;
+  export function getWallDataAt(...args: unknown[]): unknown;
+  export function getWallDataSize(...args: unknown[]): unknown;
+  export function setWallDataAt(...args: unknown[]): unknown;
 }
 
-export interface EngineWorkerLocalNs {
-  clear: EngineFn;
-  get: EngineFn;
-  getOrInit: EngineFn;
-  set: EngineFn;
+/** Engine-only: `sandkit.engine.api.workerLocal`. */
+export namespace workerLocal {
+  export function clear(...args: unknown[]): unknown;
+  export function get(...args: unknown[]): unknown;
+  export function getOrInit(...args: unknown[]): unknown;
+  export function set(...args: unknown[]): unknown;
 }
 
-export interface SandkitEngineApi {
+/**
+ * Composed `sandkit.engine.api` shape.
+ * Overlap namespaces are loose; engine-only namespaces are declared above.
+ */
+export type SandkitEngineApi = {
   // --- Overlap with sandkit.api (prefer the public API) ---
   action: EngineOverlapNs;
   authorization: EngineOverlapNs;
@@ -348,47 +390,48 @@ export interface SandkitEngineApi {
   world: EngineOverlapNs;
 
   // --- Engine-only ---
-  augments: EngineAugmentsNs;
-  auralite: EngineAuraliteNs;
-  blueprints: EngineBlueprintsNs;
-  clipboard: EngineClipboardNs;
-  colorPicker: EngineColorPickerNs;
-  coloringTool: EngineColoringToolNs;
-  conveyors: EngineConveyorsNs;
-  debug: EngineDebugNs;
-  drones: EngineDronesNs;
-  entities: EngineEntitiesNs;
-  extensions: EngineExtensionsNs;
-  factory: EngineFactoryNs;
-  foliage: EngineFoliageNs;
-  foundationColorPicker: EngineFoundationColorPickerNs;
-  game: EngineGameNs;
-  heatTransfer: EngineHeatTransferNs;
-  launchers: EngineLaunchersNs;
-  lightColorPicker: EngineLightColorPickerNs;
-  matters: EngineMattersNs;
-  misc: EngineMiscNs;
-  portals: EnginePortalsNs;
-  prefabData: EnginePrefabDataNs;
-  prefabDecor: EnginePrefabDecorNs;
-  prefabulator: EnginePrefabulatorNs;
-  prismaline: EnginePrismalineNs;
-  prismite: EnginePrismiteNs;
-  queue: EngineQueueNs;
-  shadows: EngineShadowsNs;
-  strataform: EngineStrataformNs;
-  swarmConsole: EngineSwarmConsoleNs;
-  sweeperDrone: EngineSweeperDroneNs;
-  teleportZones: EngineTeleportZonesNs;
-  tutorialBuild: EngineTutorialBuildNs;
-  usageTracker: EngineUsageTrackerNs;
-  wall: EngineWallNs;
-  workerLocal: EngineWorkerLocalNs;
+  augments: typeof augments;
+  auralite: typeof auralite;
+  blueprints: typeof blueprints;
+  clipboard: typeof clipboard;
+  colorPicker: typeof colorPicker;
+  coloringTool: typeof coloringTool;
+  conveyors: typeof conveyors;
+  debug: typeof debug;
+  drones: typeof drones;
+  entities: typeof entities;
+  extensions: typeof extensions;
+  factory: typeof factory;
+  foliage: typeof foliage;
+  foundationColorPicker: typeof foundationColorPicker;
+  game: typeof game;
+  heatTransfer: typeof heatTransfer;
+  launchers: typeof launchers;
+  lightColorPicker: typeof lightColorPicker;
+  matters: typeof matters;
+  misc: typeof misc;
+  portals: typeof portals;
+  prefabData: typeof prefabData;
+  prefabDecor: typeof prefabDecor;
+  prefabulator: typeof prefabulator;
+  prismaline: typeof prismaline;
+  prismite: typeof prismite;
+  queue: typeof queue;
+  shadows: typeof shadows;
+  strataform: typeof strataform;
+  swarmConsole: typeof swarmConsole;
+  sweeperDrone: typeof sweeperDrone;
+  teleportZones: typeof teleportZones;
+  tutorialBuild: typeof tutorialBuild;
+  usageTracker: typeof usageTracker;
+  wall: typeof wall;
+  workerLocal: typeof workerLocal;
   config: EngineFn;
   extend: EngineFn;
   retroConsole: RetroConsoleApi;
-}
+};
 
+/** Top-level keys on `sandkit.engine.state`. */
 export interface SandkitEngineState {
   environment: unknown;
   sandkit: unknown;
@@ -397,6 +440,7 @@ export interface SandkitEngineState {
   store: unknown;
 }
 
+/** Host `sandkit.engine` object. */
 export interface SandkitEngine {
   api: SandkitEngineApi;
   state: SandkitEngineState;

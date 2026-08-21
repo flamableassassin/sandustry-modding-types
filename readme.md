@@ -60,7 +60,13 @@ TypeDoc writes the generated site to `dist/`.
 
 ## Contributing
 
-Keep main-only, worker-only, and shared declarations in their existing source
-trees. Prefer a precise type when it has been confirmed, but leave a value as
-`unknown` instead of guessing its shape. Documentation improvements and small,
-reproducible API discoveries are welcome.
+Keep main-only, worker-only, engine, and shared declarations in their existing
+source trees. Prefer a precise type when it has been confirmed, but leave a
+value as `unknown` instead of guessing its shape. Documentation improvements
+and small, reproducible API discoveries are welcome.
+
+For TypeDoc:
+
+- Prefer `export namespace` for API bags so pages nest as `main.ui`, `engine.queue`.
+- Keep `SandkitReact` shallow so the site does not ingest `@types/react` / DOM.
+- Use `{@link main.structures.addProcessor}` style links in `docs/*.md`.

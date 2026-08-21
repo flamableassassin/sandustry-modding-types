@@ -1,5 +1,8 @@
 /**
- * Composed main-thread `sandkit.api` shape from the namespace modules in this package.
+ * Composed main-thread `sandkit.api` object.
+ *
+ * Namespace members are documented under the {@link main} module. Use this type
+ * when typing the host `sandkit.api` value as a whole.
  */
 export type SandkitApi = {
   action: typeof import("./api/action").action;
