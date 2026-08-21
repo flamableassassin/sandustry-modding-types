@@ -13,8 +13,11 @@ Sandkit modding API.
 
 The declarations under `src/main` and `src/worker` document the API available
 as `sandkit.api` in each runtime. Shared declarations live under `src/shared`.
-The generated TypeDoc site makes the namespaces, methods, parameters, return
-types, and guide pages searchable in one place.
+`src/engine` documents `sandkit.engine` (state-first internals and Retro Console).
+`src/sandkit.d.ts` and `src/main/sandkit-api.d.ts` compose the host `sandkit`
+global and main-thread `api` object. The generated TypeDoc site makes the
+namespaces, methods, parameters, return types, and guide pages searchable in one
+place.
 
 This is a type and documentation project, not runtime code. It does not install
 Sandkit or make an API available in the game.
@@ -25,9 +28,13 @@ Sandkit or make an API available in the game.
 | --- | --- |
 | `src/main/index.d.ts` | Main-thread APIs such as registration, UI, sprites, and idle-safe world changes |
 | `src/worker/index.d.ts` | Manager/simulation worker APIs and direct worker mutation operations |
+| `src/engine/index.d.ts` | `sandkit.engine` (prefer `sandkit.api` when the public method exists) |
+| `src/sandkit.d.ts` | Host-injected `sandkit` global shape |
 
-The two runtime APIs overlap, but they are not interchangeable. Check the entry
-point containing a method before using it in `main.js` or `worker.js`.
+The main and worker APIs overlap, but they are not interchangeable. Check the
+entry point containing a method before using it in `main.js` or `worker.js`.
+Engine methods usually take game state as the first argument and use shorter
+names than `sandkit.api`.
 
 ## Status and accuracy
 
