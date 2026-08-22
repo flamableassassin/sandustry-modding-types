@@ -12,7 +12,7 @@
  * @internal
  */
 import type { RetroConsoleApi } from "./retro-console";
-import type { EngineFn, EngineOverlapNs } from "../common-types/engine";
+import type { EngineFn, EngineOverlapNs } from "../../common-types/engine";
 
 export * from "./retro-console";
 export * from "./api";
@@ -29,7 +29,7 @@ export interface SandkitEngineState {
 /**
  * Composed `sandkit.engine.api` shape.
  * Overlap namespaces are loose; engine-only namespaces are declared under
- * `src/engine/api`.
+ * `src/shared/engine/api`.
  *
  * @internal
  */

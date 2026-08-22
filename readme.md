@@ -13,7 +13,7 @@ Sandkit modding API.
 
 The declarations under `src/main` and `src/worker` document the API available
 as `sandkit.api` in each runtime. Shared declarations live under `src/shared`.
-`src/engine` documents `sandkit.engine` (state-first internals and Retro Console).
+`src/shared/engine` documents `sandkit.engine` (state-first internals and Retro Console).
 The generated TypeDoc site makes the namespaces, methods, parameters, return
 types, and guide pages searchable in one place.
 
@@ -26,7 +26,7 @@ Sandkit or make an API available in the game.
 | --- | --- |
 | `src/main/index.d.ts` | Main-thread APIs such as registration, UI, sprites, and idle-safe world changes |
 | `src/worker/index.d.ts` | Manager/simulation worker APIs and direct worker mutation operations |
-| `src/engine/index.d.ts` | `sandkit.engine` — the game's internal API |
+| `src/shared/engine/index.d.ts` | `sandkit.engine` — the game's internal API |
 
 The main and worker APIs overlap, but they are not interchangeable. Check the
 entry point containing a method before using it in `main.js` or `worker.js`.
@@ -40,7 +40,7 @@ observed numeric element, terrain, structure, or scene value as a permanent ID.
 
 ### Internal and engine APIs
 
-`src/engine` documents internal, state-first APIs under `sandkit.engine`. These
+`src/shared/engine` documents internal, state-first APIs under `sandkit.engine`. These
 declarations are best-effort stubs inferred from runtime observation. **There is
 no guarantee that they are complete or correct.** Use this documentation and
 these types **at your own risk**. Prefer `sandkit.api` when a public method
@@ -63,7 +63,8 @@ TypeDoc writes the generated site to `dist/`.
 
 ## Contributing
 
-Keep main-only, worker-only, engine, and shared declarations in their existing
-source trees. Prefer a precise type when it has been confirmed, but leave a
-value as `unknown` instead of guessing its shape. Documentation improvements
-and small, reproducible API discoveries are welcome.
+Keep main-only, worker-only, and shared declarations (including
+`src/shared/engine`) in their existing source trees. Prefer a precise type when
+it has been confirmed, but leave a value as `unknown` instead of guessing its
+shape. Documentation improvements and small, reproducible API discoveries are
+welcome.
