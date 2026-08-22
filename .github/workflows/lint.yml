@@ -40,5 +40,4 @@ jobs:
         with:
           continue_on_error: false
           prettier: true
-          prettier_args: -c ./.prettierrc.ts
           eslint: true
