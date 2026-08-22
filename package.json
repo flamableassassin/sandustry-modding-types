@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx typedoc --tsconfig tsconfig.json",
-    "watch": "npm run build -- --watch"
+    "watch": "npm run build -- --watch",
+    "prettier": "npx prettier ./ --write -c ./.prettierrc.ts",
+    "eslint": "npx eslint -c ./eslint.config.ts ./ --fix"
   },
   "keywords": [],
   "type": "module",

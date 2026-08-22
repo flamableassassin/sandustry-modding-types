@@ -8,5 +8,6 @@ export namespace events {
     payload: EventPayload<K>
   ): void;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   export type EventPayload<K> = unknown;
 }
