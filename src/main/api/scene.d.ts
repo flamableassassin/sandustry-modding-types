@@ -3,7 +3,7 @@ export namespace scene {
     MainMenu = 1,
     Intro = 2,
     Deploy = 3,
-    Game = 4,
+    Game = 4
   }
   export function getActive(): Scene;
 }

@@ -28,10 +28,12 @@ export namespace building {
     Pump = 24,
     LiquidVent = 25,
     Light = 26,
-    GloomEmitter = 27,
+    GloomEmitter = 27
   }
   export function getSnappedPositionAtCell(...args: CellCoordinates): Vector2;
   export function isBlockedAtCell(...args: CellCoordinates): boolean;
   export function cancelPlacement(): void;
-  export function selectStructure(structureTypeOrId: string | StructureType): string | StructureType | null;
+  export function selectStructure(
+    structureTypeOrId: string | StructureType
+  ): string | StructureType | null;
 }

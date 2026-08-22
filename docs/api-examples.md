@@ -17,10 +17,7 @@ await (async () => {
   const MOD_ID = "author.example-mod";
   const STRUCTURE_ID = "example-structure";
 
-  await api.sprites.loadFromMod(
-    STRUCTURE_ID,
-    "assets/example-structure.png",
-  );
+  await api.sprites.loadFromMod(STRUCTURE_ID, "assets/example-structure.png");
 
   api.storage.ensure(MOD_ID);
   api.ui.toast(`${MOD_ID} loaded`);
@@ -49,7 +46,7 @@ if (info !== null) {
     matterType: definition?.matterType,
     isParticle: info.isParticle,
     cellId: info.cellId,
-    velocity,
+    velocity
   });
 }
 ```
@@ -150,7 +147,7 @@ const unsubscribe = api.events.on("building:placed", (payload) => {
   api.structures.setData(structure, { initialized: true });
   api.storage.set(MOD_ID, "lastPlaced", {
     x: structure.x,
-    y: structure.y,
+    y: structure.y
   });
 });
 
@@ -173,7 +170,7 @@ api.storage.ensure(MOD_ID);
 const previous = api.storage.get(MOD_ID, "settings") ?? {};
 api.storage.set(MOD_ID, "settings", {
   ...previous,
-  enabled: true,
+  enabled: true
 });
 ```
 
@@ -187,7 +184,7 @@ Main-entry UI methods that display a modal return promises.
 ```js
 const shouldContinue = await api.ui.confirm(
   "Replace the selected cell?",
-  "Example Mod",
+  "Example Mod"
 );
 
 if (shouldContinue) {

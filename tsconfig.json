@@ -1,22 +1,15 @@
 {
-  "include": [
-    "./src/*"
-  ],
+  "include": ["./src/*"],
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "lib": [
-      "es6",
-      "dom"
-    ],
+    "lib": ["es6", "dom"],
     "exactOptionalPropertyTypes": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "types": [
-      "react"
-    ],
+    "types": ["react"],
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true

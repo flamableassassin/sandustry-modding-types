@@ -1,5 +1,8 @@
 export namespace triggers {
-  export function register(triggerId: string, definition: MainTriggerDefinition): void;
+  export function register(
+    triggerId: string,
+    definition: MainTriggerDefinition
+  ): void;
 
   export interface MainTriggerDefinition {
     interval: number;

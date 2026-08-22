@@ -1,0 +1,43 @@
+# Modified from https://github.com/fluxloader-team/fluxloader-site/blob/b9392da222e4803a18275f13db19e067fd7eef11/.github/workflows/lint.yml
+
+name: Lint w/ Prettier
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  checks: write
+  contents: write
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          # Need to keep an eye on this whenever we do a major node version jump
+          node-version: 24
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          continue_on_error: false
+          prettier: true
+          eslint: true

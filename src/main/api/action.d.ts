@@ -1,6 +1,5 @@
 import { AssetRef } from "../../common-types/asset";
 
-
 export declare namespace action {
   export type Action = AssetRef;
 

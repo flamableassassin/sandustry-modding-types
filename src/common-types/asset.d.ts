@@ -1,4 +1,4 @@
 export interface AssetRef {
-  id: number
-  type: number
+  id: number;
+  type: number;
 }

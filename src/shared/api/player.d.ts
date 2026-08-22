@@ -3,5 +3,7 @@ import type { CellCoordinates, Vector2 } from "../../common-types/player";
 export namespace player {
   export function getWorldPosition(): Vector2;
   export function isCollidingWithCell(...args: CellCoordinates): boolean;
-  export function isWithinRadiusOfCell(...args: [...CellCoordinates, radius: number]): boolean;
+  export function isWithinRadiusOfCell(
+    ...args: [...CellCoordinates, radius: number]
+  ): boolean;
 }

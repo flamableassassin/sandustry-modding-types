@@ -22,11 +22,11 @@ Sandkit or make an API available in the game.
 
 ## Runtime entry points
 
-| Entry point | Use it for |
-| --- | --- |
-| `src/main/index.d.ts` | Main-thread APIs such as registration, UI, sprites, and idle-safe world changes |
-| `src/worker/index.d.ts` | Manager/simulation worker APIs and direct worker mutation operations |
-| `src/shared/engine/index.d.ts` | `sandkit.engine` — the game's internal API |
+| Entry point                    | Use it for                                                                      |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| `src/main/index.d.ts`          | Main-thread APIs such as registration, UI, sprites, and idle-safe world changes |
+| `src/worker/index.d.ts`        | Manager/simulation worker APIs and direct worker mutation operations            |
+| `src/shared/engine/index.d.ts` | `sandkit.engine` — the game's internal API                                      |
 
 The main and worker APIs overlap, but they are not interchangeable. Check the
 entry point containing a method before using it in `main.js` or `worker.js`.
