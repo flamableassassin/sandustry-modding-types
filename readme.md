@@ -43,6 +43,14 @@ are intentionally still typed as `unknown`; see [TODO](TODO) for known gaps.
 Resolve stable string IDs through the API where possible, and do not treat an
 observed numeric element, terrain, structure, or scene value as a permanent ID.
 
+### Internal and engine APIs
+
+`src/engine` documents internal, state-first APIs under `sandkit.engine`. These
+declarations are best-effort stubs inferred from runtime observation. **There is
+no guarantee that they are complete or correct.** Use this documentation and
+these types **at your own risk**. Prefer `sandkit.api` when a public method
+exists.
+
 If a declaration differs from the current game, please open an issue or pull
 request with the Sandustry/Sandkit version, the runtime (`main` or `worker`), and
 a small reproduction.

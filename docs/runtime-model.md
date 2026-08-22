@@ -37,6 +37,10 @@ See the {@link worker} module for the worker `sandkit.api` surface.
 `sandkit.engine`. Prefer {@link main} (`sandkit.api`) when a public method
 exists.
 
+**Warning:** engine declarations are internal API stubs. There is no guarantee
+they are complete or correct. Use this documentation and these types **at your
+own risk**.
+
 Engine differences from the public API:
 
 - Methods usually take the game state as the first argument.

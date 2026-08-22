@@ -1,9 +1,10 @@
 /**
  * `sandkit.engine.api` namespaces.
  *
- * Prefer {@link main | sandkit.api (main)} when a method exists there.
- * Engine methods usually take the game state as the first argument and use
- * shorter names. Engine-only members below are stubs until confirmed.
+ * **Internal API — use at your own risk.** Stubs below are not guaranteed to
+ * match the live game. Prefer {@link main | sandkit.api (main)} when a method
+ * exists there. Engine methods usually take the game state as the first argument
+ * and use shorter names. Engine-only members below are stubs until confirmed.
  */
 
 import type { RetroConsoleApi } from "./retro-console";
