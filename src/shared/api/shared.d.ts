@@ -3,6 +3,6 @@ export namespace shared {
     export function get(key: string): SharedArray | undefined;
   }
 
-  export type SharedArray = unknown
-  export type SharedArrayType = unknown
+  export type SharedArray = unknown;
+  export type SharedArrayType = unknown;
 }

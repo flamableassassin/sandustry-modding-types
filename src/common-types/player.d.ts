@@ -1,7 +1,6 @@
 import { AssetRef } from "./asset";
 
-export type CellCoordinates = [cellX: number, cellY: number]
-
+export type CellCoordinates = [cellX: number, cellY: number];
 
 export type Vector2 = {
   x: number;
@@ -13,7 +12,7 @@ export interface Player {
   y: number;
   width: number;
   height: number;
-  velocity: Vector2
+  velocity: Vector2;
   threshold: Vector2;
   onGround: boolean;
   speedCapOverdrive: {
@@ -36,8 +35,8 @@ export interface Player {
   buildings: number[];
   tech: {
     [key: string | number]: {
-      x: number,
-      y: number,
+      x: number;
+      y: number;
       descriptionKey: string;
       descriptionParams?: {
         [key: string]: number;
@@ -63,7 +62,7 @@ export interface Player {
       threshold?: number;
     };
   };
-  lockedTechs: { [key: string]: boolean },
+  lockedTechs: { [key: string]: boolean };
   action: null;
   hotbar: {
     activeSlotIndex: number;
@@ -98,32 +97,31 @@ export interface Player {
   };
 }
 
-
 export interface InventoryItem {
-  id: number,
-  itemType: number,
+  id: number;
+  itemType: number;
   abilities: {
-    type: number,
-    levelRequirement?: number,
+    type: number;
+    levelRequirement?: number;
     attributes: {
       [key: string]: {
         opts?: {
-          speed?: number,
-          angle?: number
-        },
-        type: number,
+          speed?: number;
+          angle?: number;
+        };
+        type: number;
         attributes?: {
-          blastRadius?: number
-        },
-      },
-    },
+          blastRadius?: number;
+        };
+      };
+    };
     cooldown: {
-      time: number,
-      last: number
-    }
-  }[],
-  nameKey: string,
-  descriptionKey: string,
-  categoryKey: "excavation" | "utility" | "drones",
-  sprite?: AssetRef,
+      time: number;
+      last: number;
+    };
+  }[];
+  nameKey: string;
+  descriptionKey: string;
+  categoryKey: "excavation" | "utility" | "drones";
+  sprite?: AssetRef;
 }

@@ -54,7 +54,7 @@ await (async () => {
 
   await api.sprites.loadFromMod(
     "example-structure",
-    "assets/example-structure.png",
+    "assets/example-structure.png"
   );
 
   api.ui.toast("Example Mod loaded");
@@ -81,7 +81,7 @@ if (info !== null) {
     elementId: definition?.id,
     matterType: definition?.matterType,
     isParticle: info.isParticle,
-    velocity: api.elements.getVelocityAtCell(cellX, cellY),
+    velocity: api.elements.getVelocityAtCell(cellX, cellY)
   });
 }
 ```

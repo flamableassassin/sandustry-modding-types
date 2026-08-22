@@ -3,5 +3,5 @@ export namespace cooldown {
   export function isReady(cooldown: Cooldown, overrideTime?: number): boolean;
 
   // TODO
-  export type Cooldown = unknown
+  export type Cooldown = unknown;
 }

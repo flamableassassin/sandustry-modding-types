@@ -1,19 +1,19 @@
-export * from "./api/main"
-export * from "./api/shared"
-export * from "./api/worker"
+export * from "./api/main";
+export * from "./api/shared";
+export * from "./api/worker";
 
 // Shared files
-export * from "../shared/api/collector"
-export * from "../shared/api/elements"
-export * from "../shared/api/fire"
-export * from "../shared/api/hooks"
-export * from "../shared/api/maps"
-export * from "../shared/api/patterns"
-export * from "../shared/api/player"
-export * from "../shared/api/random"
-export * from "../shared/api/structures"
-export * from "../shared/api/terrains"
-export * from "../shared/api/ui"
-export * from "../shared/api/utils"
-export * from "../shared/api/world"
-export * as engine from "../shared/engine"
+export * from "../shared/api/collector";
+export * from "../shared/api/elements";
+export * from "../shared/api/fire";
+export * from "../shared/api/hooks";
+export * from "../shared/api/maps";
+export * from "../shared/api/patterns";
+export * from "../shared/api/player";
+export * from "../shared/api/random";
+export * from "../shared/api/structures";
+export * from "../shared/api/terrains";
+export * from "../shared/api/ui";
+export * from "../shared/api/utils";
+export * from "../shared/api/world";
+export * as engine from "../shared/engine";

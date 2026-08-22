@@ -37,7 +37,11 @@ export interface RetroConsoleGame<TState = unknown> {
   options?: RetroConsoleGameOptions;
   init(display: RetroConsoleDisplay): TState;
   update(display: RetroConsoleDisplay, state: TState): TState;
-  handleInput?(display: RetroConsoleDisplay, state: TState, input: RetroConsoleInput): TState;
+  handleInput?(
+    display: RetroConsoleDisplay,
+    state: TState,
+    input: RetroConsoleInput
+  ): TState;
 }
 
 /** @internal */

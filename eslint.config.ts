@@ -6,13 +6,13 @@ export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     plugins: { js },
-    extends: ["js/recommended"],
+    extends: ["js/recommended"]
   },
   tseslint.configs.recommended,
   {
     rules: {
       // We have a bunch of anys
-      "@typescript-eslint/no-explicit-any": "off",
-    },
-  },
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  }
 ]);

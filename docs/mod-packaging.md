@@ -37,7 +37,7 @@ Keep override keys aligned with the identifiers expected by the game. Animated
 texture metadata must match the dimensions and frame count of the source sheet.
 
 For sprites owned by a mod rather than overrides, use the documented sprite API
-such as {@link  main.sprites.loadFromMod}.
+such as {@link main.sprites.loadFromMod}.
 
 ## Custom maps
 
