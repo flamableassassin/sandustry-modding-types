@@ -35,9 +35,8 @@ export interface SandkitGlobal {
   enums: SandkitEnums;
   react: SandkitReact;
   /**
-   * State-first internals. **Use at your own risk** — no guarantee these stubs
-   * are complete or correct. Prefer {@link SandkitGlobal.api | sandkit.api} when a
-   * public method exists. See {@link engine}.
+   * State-first internals. See {@link SandkitEngine}.
+   * @internal
    */
   engine: SandkitEngine;
   state?: unknown;

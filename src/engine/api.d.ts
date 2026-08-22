@@ -1,21 +1,25 @@
 /**
  * `sandkit.engine.api` namespaces.
  *
- * **Internal API — use at your own risk.** Stubs below are not guaranteed to
- * match the live game. Prefer {@link main | sandkit.api (main)} when a method
- * exists there. Engine methods usually take the game state as the first argument
- * and use shorter names. Engine-only members below are stubs until confirmed.
+ * @internal
+ *
+ * See {@link SandkitEngine} for stability notes. Engine methods usually take the
+ * game state as the first argument and use shorter names. Engine-only members
+ * below are stubs until confirmed.
  */
 
 import type { RetroConsoleApi } from "./retro-console";
 
-/** Stub for an unresolved engine method. */
+/** Stub for an unresolved engine method. @internal */
 export type EngineFn = (...args: unknown[]) => unknown;
 
-/** Loose bag for namespaces that overlap `sandkit.api` (different names / state-first). */
+/** Loose bag for namespaces that overlap `sandkit.api` (different names / state-first). @internal */
 export type EngineOverlapNs = Record<string, EngineFn | Record<string, unknown> | unknown>;
 
-/** Engine-only: `sandkit.engine.api.augments`. */
+/**
+ * Engine-only: `sandkit.engine.api.augments`.
+ * @internal
+ */
 export namespace augments {
   export function getDigLevel(...args: unknown[]): unknown;
   export function getGunLevel(...args: unknown[]): unknown;
@@ -36,13 +40,19 @@ export namespace augments {
   export function hasTripleShot(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.auralite`. */
+/**
+ * Engine-only: `sandkit.engine.api.auralite`.
+ * @internal
+ */
 export namespace auralite {
   export function ensureProducedAtLeast(...args: unknown[]): unknown;
   export function getProduced(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.blueprints`. */
+/**
+ * Engine-only: `sandkit.engine.api.blueprints`.
+ * @internal
+ */
 export namespace blueprints {
   /** Runtime property name is `delete`. */
   function _delete(...args: unknown[]): unknown;
@@ -55,7 +65,10 @@ export namespace blueprints {
   export function save(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.clipboard`. */
+/**
+ * Engine-only: `sandkit.engine.api.clipboard`.
+ * @internal
+ */
 export namespace clipboard {
   export function activate(...args: unknown[]): unknown;
   export function clear(...args: unknown[]): unknown;
@@ -66,7 +79,10 @@ export namespace clipboard {
   export function set(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.colorPicker`. */
+/**
+ * Engine-only: `sandkit.engine.api.colorPicker`.
+ * @internal
+ */
 export namespace colorPicker {
   export const CYCLE_COLOR: unknown;
   export const NO_COLOR: unknown;
@@ -85,7 +101,10 @@ export namespace colorPicker {
   export function togglePalette(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.coloringTool`. */
+/**
+ * Engine-only: `sandkit.engine.api.coloringTool`.
+ * @internal
+ */
 export namespace coloringTool {
   export function colorStructure(...args: unknown[]): unknown;
   export function floodFillColor(...args: unknown[]): unknown;
@@ -98,23 +117,35 @@ export namespace coloringTool {
   export function togglePaintBucketMode(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.conveyors`. */
+/**
+ * Engine-only: `sandkit.engine.api.conveyors`.
+ * @internal
+ */
 export namespace conveyors {
   export function registerType(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.debug`. */
+/**
+ * Engine-only: `sandkit.engine.api.debug`.
+ * @internal
+ */
 export namespace debug {
   export function register(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.drones`. */
+/**
+ * Engine-only: `sandkit.engine.api.drones`.
+ * @internal
+ */
 export namespace drones {
   export function kill(...args: unknown[]): unknown;
   export function spawn(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.entities`. */
+/**
+ * Engine-only: `sandkit.engine.api.entities`.
+ * @internal
+ */
 export namespace entities {
   export function createLight(...args: unknown[]): unknown;
   export function getAll(...args: unknown[]): unknown;
@@ -129,12 +160,18 @@ export namespace entities {
   export function startCapture(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.extensions`. */
+/**
+ * Engine-only: `sandkit.engine.api.extensions`.
+ * @internal
+ */
 export namespace extensions {
   export function define(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.factory`. */
+/**
+ * Engine-only: `sandkit.engine.api.factory`.
+ * @internal
+ */
 export namespace factory {
   export function addViabilityGold(...args: unknown[]): unknown;
   export function canUnlockNextTier(...args: unknown[]): unknown;
@@ -147,7 +184,10 @@ export namespace factory {
   export function unlockNextTier(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.foliage`. */
+/**
+ * Engine-only: `sandkit.engine.api.foliage`.
+ * @internal
+ */
 export namespace foliage {
   export function generate(...args: unknown[]): unknown;
   export function getClusters(...args: unknown[]): unknown;
@@ -155,19 +195,28 @@ export namespace foliage {
   export function hasProcgenData(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.foundationColorPicker`. */
+/**
+ * Engine-only: `sandkit.engine.api.foundationColorPicker`.
+ * @internal
+ */
 export namespace foundationColorPicker {
   export function getColor(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.game`. */
+/**
+ * Engine-only: `sandkit.engine.api.game`.
+ * @internal
+ */
 export namespace game {
   export function load(...args: unknown[]): unknown;
   export function save(...args: unknown[]): unknown;
   export function start(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.heatTransfer`. */
+/**
+ * Engine-only: `sandkit.engine.api.heatTransfer`.
+ * @internal
+ */
 export namespace heatTransfer {
   export function absorbAdjacentElements(...args: unknown[]): unknown;
   export function addTemperature(...args: unknown[]): unknown;
@@ -178,34 +227,52 @@ export namespace heatTransfer {
   export function equalizeConnected(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.launchers`. */
+/**
+ * Engine-only: `sandkit.engine.api.launchers`.
+ * @internal
+ */
 export namespace launchers {
   export function registerType(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.lightColorPicker`. */
+/**
+ * Engine-only: `sandkit.engine.api.lightColorPicker`.
+ * @internal
+ */
 export namespace lightColorPicker {
   export function getColor(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.matters`. */
+/**
+ * Engine-only: `sandkit.engine.api.matters`.
+ * @internal
+ */
 export namespace matters {
   export function getMatterTypeFromId(...args: unknown[]): unknown;
   export function register(...args: unknown[]): unknown;
   export function runSolidUpdate(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.misc`. */
+/**
+ * Engine-only: `sandkit.engine.api.misc`.
+ * @internal
+ */
 export namespace misc {
   export function register(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.portals`. */
+/**
+ * Engine-only: `sandkit.engine.api.portals`.
+ * @internal
+ */
 export namespace portals {
   export function getMarkers(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.prefabData`. */
+/**
+ * Engine-only: `sandkit.engine.api.prefabData`.
+ * @internal
+ */
 export namespace prefabData {
   export function getAll(...args: unknown[]): unknown;
   export function getAllMetadata(...args: unknown[]): unknown;
@@ -214,33 +281,48 @@ export namespace prefabData {
   export function getMetadata(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.prefabDecor`. */
+/**
+ * Engine-only: `sandkit.engine.api.prefabDecor`.
+ * @internal
+ */
 export namespace prefabDecor {
   export function getPlacementByName(...args: unknown[]): unknown;
   export function replaceDecor(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.prefabulator`. */
+/**
+ * Engine-only: `sandkit.engine.api.prefabulator`.
+ * @internal
+ */
 export namespace prefabulator {
   export function localizeBlueprintStructures(...args: unknown[]): unknown;
   export function serializeBlueprintStructures(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.prismaline`. */
+/**
+ * Engine-only: `sandkit.engine.api.prismaline`.
+ * @internal
+ */
 export namespace prismaline {
   export function consume(...args: unknown[]): unknown;
   export function getAvailable(...args: unknown[]): unknown;
   export function getConsumed(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.prismite`. */
+/**
+ * Engine-only: `sandkit.engine.api.prismite`.
+ * @internal
+ */
 export namespace prismite {
   export function consume(...args: unknown[]): unknown;
   export function getAvailable(...args: unknown[]): unknown;
   export function getConsumed(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.queue`. */
+/**
+ * Engine-only: `sandkit.engine.api.queue`.
+ * @internal
+ */
 export namespace queue {
   export function enqueue(...args: unknown[]): unknown;
   export function enqueueInTicks(...args: unknown[]): unknown;
@@ -250,14 +332,20 @@ export namespace queue {
   export function removeByKey(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.shadows`. */
+/**
+ * Engine-only: `sandkit.engine.api.shadows`.
+ * @internal
+ */
 export namespace shadows {
   export function refresh(...args: unknown[]): unknown;
   export function refreshRadius(...args: unknown[]): unknown;
   export function refreshRect(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.strataform`. */
+/**
+ * Engine-only: `sandkit.engine.api.strataform`.
+ * @internal
+ */
 export namespace strataform {
   export function getDefaultConfig(...args: unknown[]): unknown;
   export function getRegisteredTypes(...args: unknown[]): unknown;
@@ -266,7 +354,10 @@ export namespace strataform {
   export function triggerByType(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.swarmConsole`. */
+/**
+ * Engine-only: `sandkit.engine.api.swarmConsole`.
+ * @internal
+ */
 export namespace swarmConsole {
   export function decrementConvergenceBuffer(...args: unknown[]): unknown;
   export function getCrystalMined(...args: unknown[]): unknown;
@@ -282,12 +373,18 @@ export namespace swarmConsole {
   export function setSpawnJammed(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.sweeperDrone`. */
+/**
+ * Engine-only: `sandkit.engine.api.sweeperDrone`.
+ * @internal
+ */
 export namespace sweeperDrone {
   export function cancelSelection(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.teleportZones`. */
+/**
+ * Engine-only: `sandkit.engine.api.teleportZones`.
+ * @internal
+ */
 export namespace teleportZones {
   export function add(...args: unknown[]): unknown;
   export function getAll(...args: unknown[]): unknown;
@@ -298,7 +395,10 @@ export namespace teleportZones {
   export function teleportPlayerTo(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.tutorialBuild`. */
+/**
+ * Engine-only: `sandkit.engine.api.tutorialBuild`.
+ * @internal
+ */
 export namespace tutorialBuild {
   export function areAllTargetsBuilt(...args: unknown[]): unknown;
   export function areFamilyTargetsBuilt(...args: unknown[]): unknown;
@@ -313,14 +413,20 @@ export namespace tutorialBuild {
   export function shouldProtectActiveTargetAt(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.usageTracker`. */
+/**
+ * Engine-only: `sandkit.engine.api.usageTracker`.
+ * @internal
+ */
 export namespace usageTracker {
   export function clear(...args: unknown[]): unknown;
   export function getLatest(...args: unknown[]): unknown;
   export function getMostUsed(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.wall`. */
+/**
+ * Engine-only: `sandkit.engine.api.wall`.
+ * @internal
+ */
 export namespace wall {
   export function getPaletteData(...args: unknown[]): unknown;
   export function getWallDataAt(...args: unknown[]): unknown;
@@ -328,7 +434,10 @@ export namespace wall {
   export function setWallDataAt(...args: unknown[]): unknown;
 }
 
-/** Engine-only: `sandkit.engine.api.workerLocal`. */
+/**
+ * Engine-only: `sandkit.engine.api.workerLocal`.
+ * @internal
+ */
 export namespace workerLocal {
   export function clear(...args: unknown[]): unknown;
   export function get(...args: unknown[]): unknown;
@@ -339,6 +448,8 @@ export namespace workerLocal {
 /**
  * Composed `sandkit.engine.api` shape.
  * Overlap namespaces are loose; engine-only namespaces are declared above.
+ *
+ * @internal
  */
 export type SandkitEngineApi = {
   // --- Overlap with sandkit.api (prefer the public API) ---
@@ -432,7 +543,7 @@ export type SandkitEngineApi = {
   retroConsole: RetroConsoleApi;
 };
 
-/** Top-level keys on `sandkit.engine.state`. */
+/** Top-level keys on `sandkit.engine.state`. @internal */
 export interface SandkitEngineState {
   environment: unknown;
   sandkit: unknown;
@@ -441,7 +552,15 @@ export interface SandkitEngineState {
   store: unknown;
 }
 
-/** Host `sandkit.engine` object. */
+/**
+ * Host `sandkit.engine` object.
+ *
+ * **Internal API — use at your own risk.** These declarations are best-effort
+ * stubs. There is no guarantee they are complete or correct. Prefer
+ * {@link main | sandkit.api} when a public method exists.
+ *
+ * @internal
+ */
 export interface SandkitEngine {
   api: SandkitEngineApi;
   state: SandkitEngineState;

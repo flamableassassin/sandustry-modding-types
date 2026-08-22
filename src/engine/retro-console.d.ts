@@ -1,12 +1,16 @@
 /**
  * In-world Retro Console shapes used by `sandkit.engine.api.retroConsole`.
  *
- * Part of the internal engine surface — use at your own risk. Register games
+ * @internal
+ *
+ * Part of {@link SandkitEngine | the internal engine surface}. Register games
  * through {@link RetroConsoleApi.registerGame}.
  */
 
+/** @internal */
 export type RetroConsolePixel = boolean | number;
 
+/** @internal */
 export interface RetroConsoleDisplay {
   width: number;
   height: number;
@@ -14,16 +18,19 @@ export interface RetroConsoleDisplay {
   drawPixel(x: number, y: number, value: RetroConsolePixel): void;
 }
 
+/** @internal */
 export interface RetroConsoleInput {
   x: number;
   y: number;
 }
 
+/** @internal */
 export interface RetroConsoleGameOptions {
   width: number;
   height: number;
 }
 
+/** @internal */
 export interface RetroConsoleGame<TState = unknown> {
   id: string;
   name: string;
@@ -33,6 +40,7 @@ export interface RetroConsoleGame<TState = unknown> {
   handleInput?(display: RetroConsoleDisplay, state: TState, input: RetroConsoleInput): TState;
 }
 
+/** @internal */
 export interface RetroConsoleApi {
   registerGame<TState>(game: RetroConsoleGame<TState>): void;
 }
