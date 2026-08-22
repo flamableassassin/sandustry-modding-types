@@ -15,6 +15,7 @@ on:
 permissions:
   checks: write
   contents: write
+  actions: write
 
 jobs:
   run-linters:
