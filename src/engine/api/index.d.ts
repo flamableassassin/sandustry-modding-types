@@ -9,7 +9,6 @@
  * @internal
  */
 
-export * from "./types";
 export * from "./augments";
 export * from "./auralite";
 export * from "./blueprints";
@@ -46,5 +45,3 @@ export * from "./tutorialBuild";
 export * from "./usageTracker";
 export * from "./wall";
 export * from "./workerLocal";
-export * from "./sandkit-engine-api";
-export * from "./sandkit-engine";

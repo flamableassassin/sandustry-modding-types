@@ -37,6 +37,11 @@ See the {@link worker} module for the worker `sandkit.api` surface.
 they are complete or correct. Use this documentation and these types **at your
 own risk**.
 
+`sandkit.engine` is available on both the main thread and the worker thread.
+The public `sandkit.api` surface still differs by runtime — do not treat engine
+access as permission to use main-only or worker-only `api` methods in the wrong
+entry.
+
 {@link engine} documents the state-first engine object under
 `sandkit.engine`. Prefer {@link main} (`sandkit.api`) when a public method
 exists.
