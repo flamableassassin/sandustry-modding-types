@@ -110,7 +110,7 @@ if (api.world.isCellEmptyAtCell(cellX, cellY)) {
 ```
 
 For related work that must happen together, schedule a callback with
-{@link main.world.runWhenSimulationIdle}. Do not substitute a worker-only direct
+{@link sandkit.api.world.runWhenSimulationIdle}. Do not substitute a worker-only direct
 mutation method in `main.js`.
 
 ## Before testing

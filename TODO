@@ -1,61 +1,62 @@
 - [ ] Split worker and main runtimes
-- [x] [`constants` namespace](./src/main/api/constants.d.ts) (`physics` skip modes)
-- [x] Export [`maps`](./src/main/api/maps.d.ts) from `src/main/index.d.ts`
-- [x] [`sandkit.engine` stubs](./src/shared/engine/)
+- [x] [`constants` namespace](./src/sandkit/api/constants.d.ts) (`physics` skip modes)
+- [x] Export [`maps`](./src/sandkit/api/maps.d.ts) from `src/sandkit/api/index.d.ts`
+- [x] [`sandkit.engine` stubs](./src/sandkit/engine/) + composed [`SandkitApi`](./src/sandkit/api/sandkit-api.d.ts) / [`Sandkit`](./src/sandkit/index.d.ts)
+- [x] Layout mirrors live `sandkit` (`src/sandkit/api`, `src/sandkit/engine`, `src/sandkit/enums`, …)
 - [ ] Clean up the [player shared type](./src/shared-types/player.ts)
   - [ ] Refactor and split up player interface
     - [ ] Tech
     - [ ] weaponsMeta
   - [ ] Refactor and split up inventory item
     - [ ] abilities
-- [ ] [Element types](./src/api/elements.d.ts)
+- [ ] [Element types](./src/sandkit/api/elements.d.ts)
   - [ ] `ElementCreateOptions`
   - [ ] `ElementRemovalOptions`
   - [ ] `e`
   - [ ] `r`
-- [ ] [`Cooldown` type](./src/api/cooldown.d.ts)
-- [ ] [`ExcavationProfileDefinitionV1` type](./src/api/excavation.d.ts)
-- [ ] [`EventPayload` type ](./src/api/events.d.ts)
+- [ ] [`Cooldown` type](./src/sandkit/api/cooldown.d.ts)
+- [ ] [`ExcavationProfileDefinitionV1` type](./src/sandkit/api/excavation.d.ts)
+- [ ] [`EventPayload` type ](./src/sandkit/api/events.d.ts)
   - [ ] See if there is a way to build native event typing for type doc
-- [ ] [Hook types](./src/api/hook.d.ts)
+- [ ] [Hook types](./src/sandkit/api/hook.d.ts)
   - [ ] `InterceptHookMap`
   - [ ] `HookContext`
   - [ ] `ModifierHookMap`
   - [ ] `HookOptions`
-- [ ] [`InputBindingDefinition` type](./src/api/input.d.ts)
-- [ ] [Item types](./src/api/items.d.ts)
+- [ ] [`InputBindingDefinition` type](./src/sandkit/api/input.d.ts)
+- [ ] [Item types](./src/sandkit/api/items.d.ts)
   - [ ] `ModItem`
   - [ ] `ItemType`
-- [ ] [Light types](./src/api/lights.d.ts)
+- [ ] [Light types](./src/sandkit/api/lights.d.ts)
   - [ ] `TemporaryLightOptions`
   - [ ] `PersistentLightOptions`
-- [ ] [Maps types](./src/api/maps.d.ts)
+- [ ] [Maps types](./src/sandkit/api/maps.d.ts)
   - [ ] `ActiveMapV1`
   - [ ] `AvailableMapV1`
-- [ ] [`AssetProviderV1` type](./src/api/mods.d.ts)
-- [ ] [`PatternExcavateOptions` type](./src/api/patterns.d.ts)
-- [ ] [Processing types](./src/api/processing.d.ts)
+- [ ] [`AssetProviderV1` type](./src/sandkit/api/mods.d.ts)
+- [ ] [`PatternExcavateOptions` type](./src/sandkit/api/patterns.d.ts)
+- [ ] [Processing types](./src/sandkit/api/processing.d.ts)
   - [ ] `PlanterBoxRecipeDefinitionV1`
   - [ ] `ShakerRecipeDefinitionV1`
   - [ ] `KineticPressRecipeDefinitionV1`
-- [ ] [`ProgressionCompletionRequestV1`](./src/api/progression.d.ts)
-- [ ] [Projectiles types](./src/api/projectiles.d.ts)
+- [ ] [`ProgressionCompletionRequestV1`](./src/sandkit/api/progression.d.ts)
+- [ ] [Projectiles types](./src/sandkit/api/projectiles.d.ts)
   - [ ] `ProjectileBlueprint`
   - [ ] `Projectile`
-- [ ] [`ContactRecipeDefinitionV1` type](./src/api/reactions.d.ts)
-- [ ] [`ConfigValueV1` type ](./src/api/settings.d.ts)
-- [ ] [Shared types](./src/api/shared.d.ts)
+- [ ] [`ContactRecipeDefinitionV1` type](./src/sandkit/api/reactions.d.ts)
+- [ ] [`ConfigValueV1` type ](./src/sandkit/api/settings.d.ts)
+- [ ] [Shared types](./src/sandkit/api/shared.d.ts)
   - [ ] `SharedArray`
   - [ ] `SharedArrayType`
-- [ ] [Signal types](./src/api/signals.d.ts)
+- [ ] [Signal types](./src/sandkit/api/signals.d.ts)
   - [ ] `StructureType`
   - [ ] `Structure`
   - [ ] `SignalTargetPayloadV1`
-- [ ] [Sound types](./src/api/sound.d.ts)
+- [ ] [Sound types](./src/sandkit/api/sound.d.ts)
   - [ ] `SoundHandle`
   - [ ] `SoundLayer`
   - [ ] `SoundOptions`
-- [ ] [Structure types](./src/api/structures.d.ts)
+- [ ] [Structure types](./src/sandkit/api/structures.d.ts)
   - [ ] `Structure` (also in signal)
   - [ ] `StructureType` (also in signal)
   - [ ] `StructureProcessorDefinitionV1`
@@ -66,25 +67,25 @@
   - [ ] `KineticPressRecipeDefinitionV1`
   - [ ] `WeightedRefineryRecipeDefinitionV1`
   - [ ] `StructureProcessingDefinitionV1`
-- [ ] [Tech types](./src/api/tech.d.ts)
+- [ ] [Tech types](./src/sandkit/api/tech.d.ts)
   - [ ] `TechGridId`
   - [ ] `TechDefinition`
   - [ ] `TechGridPosition`
-- [ ] [Terrains types](./src/api/terrains.d.ts)
+- [ ] [Terrains types](./src/sandkit/api/terrains.d.ts)
   - [ ] `TerrainDefinition`
   - [ ] `TerrainMutationOptions`
-- [ ] [`MainTriggerDefinition` type](./src/api/triggers.d.ts)
-- [ ] [UI types](./src/api/ui.d.ts)
+- [ ] [`MainTriggerDefinition` type](./src/sandkit/api/triggers.d.ts)
+- [ ] [UI types](./src/sandkit/api/ui.d.ts)
   - [ ] `ComponentId`
   - [ ] `TooltipData`
   - [ ] `LocalizedText`
   - [ ] `ToastOptions`
   - [ ] `ComponentType`
   - [ ] `RefObject`
-- [ ] [Upgrade types](./src/api/upgrades.d.ts)
+- [ ] [Upgrade types](./src/sandkit/api/upgrades.d.ts)
   - [ ] `UpgradeCategoryDefinition`
   - [ ] `UpgradeDefinition`
-- [ ] [World types](./src/api/world.d.ts)
+- [ ] [World types](./src/sandkit/api/world.d.ts)
   - [ ] `ExcavateOptions`
   - [ ] `WorldItemType`
   - [ ] `WorldItemLight`

@@ -11,11 +11,19 @@ Sandkit modding API.
 
 ## What this repository provides
 
-The declarations under `src/main` and `src/worker` document the API available
-as `sandkit.api` in each runtime. Shared declarations live under `src/shared`.
-`src/shared/engine` documents `sandkit.engine` (state-first internals and Retro Console).
-The generated TypeDoc site makes the namespaces, methods, parameters, return
-types, and guide pages searchable in one place.
+Source folders mirror the live `sandkit` object in the game:
+
+| Path | Live object |
+| --- | --- |
+| `src/sandkit/api` | `sandkit.api` on the main thread |
+| `src/worker` | `sandkit.api` on the worker thread |
+| `src/sandkit/engine` | `sandkit.engine` |
+| `src/sandkit/enums` | `sandkit.enums` |
+| `src/sandkit/react.d.ts` | `sandkit.react` |
+| `src/sandkit/index.d.ts` | `Sandkit` shape (`api`, `engine`, …) |
+| `src/global.d.ts` | Ambient `sandkit` value + type names |
+| `src/shared` | declarations shared by main and worker `api` |
+| `src/common-types` | shared domain shapes |
 
 This is a type and documentation project, not runtime code. It does not install
 Sandkit or make an API available in the game.
@@ -24,12 +32,21 @@ Sandkit or make an API available in the game.
 
 | Entry point | Use it for |
 | --- | --- |
-| `src/main/index.d.ts` | Main-thread APIs such as registration, UI, sprites, and idle-safe world changes |
-| `src/worker/index.d.ts` | Manager/simulation worker APIs and direct worker mutation operations |
-| `src/shared/engine/index.d.ts` | `sandkit.engine` — the game's internal API |
+| Ambient `sandkit` (`src/global.d.ts`) | Free variable in mod `main.js` (no import) |
+| `src/sandkit/api/index.d.ts` | Main-thread `sandkit.api` namespaces |
+| `src/worker/index.d.ts` | Worker-thread `sandkit.api` |
+| `src/worker/sandkit-api.d.ts` | Composed `WorkerSandkitApi` for `worker.ts` |
+| `src/sandkit/engine/index.d.ts` | `sandkit.engine` (prefer `sandkit.api` when possible) |
+| `src/sandkit/enums/index.d.ts` | `sandkit.enums` |
+| `src/sandkit/index.d.ts` | `Sandkit` shape and related type exports |
 
 The main and worker APIs overlap, but they are not interchangeable. Check the
 entry point containing a method before using it in `main.js` or `worker.js`.
+Engine methods usually take game state as the first argument and use shorter
+names than `sandkit.api`. At runtime `sandkit.state === sandkit.engine.state`.
+
+Mods should use the free name `sandkit` (and ambient types such as `SandkitApi`).
+Do not import a value binding for `sandkit`.
 
 ## Status and accuracy
 
@@ -40,7 +57,7 @@ observed numeric element, terrain, structure, or scene value as a permanent ID.
 
 ### Internal and engine APIs
 
-`src/shared/engine` documents internal, state-first APIs under `sandkit.engine`. These
+`src/sandkit/engine` documents internal, state-first APIs under `sandkit.engine`. These
 declarations are best-effort stubs inferred from runtime observation. **There is
 no guarantee that they are complete or correct.** Use this documentation and
 these types **at your own risk**. Prefer `sandkit.api` when a public method
@@ -63,8 +80,14 @@ TypeDoc writes the generated site to `dist/`.
 
 ## Contributing
 
-Keep main-only, worker-only, and shared declarations (including
-`src/shared/engine`) in their existing source trees. Prefer a precise type when
-it has been confirmed, but leave a value as `unknown` instead of guessing its
-shape. Documentation improvements and small, reproducible API discoveries are
-welcome.
+Keep `sandkit/api`, `worker`, `sandkit/engine`, `sandkit/enums`, and `shared`
+declarations in their existing source trees. Prefer a precise type when it has
+been confirmed, but leave a value as `unknown` instead of guessing its shape.
+Documentation improvements and small, reproducible API discoveries are welcome.
+
+For TypeDoc:
+
+- Prefer `export namespace` for API bags so pages nest as `sandkit.api.ui`, `sandkit.engine.queue`.
+- Keep `SandkitReact` shallow so the site does not ingest `@types/react` / DOM.
+- Use `{@link sandkit.api.structures.addProcessor}` style links in `docs/*.md`.
+- Match new folders to live `sandkit.*` paths when possible (`src/sandkit/api`, …).

@@ -1,7 +1,17 @@
-# Main and worker runtimes
+# Main, worker, and engine runtimes
 
 Sandkit exposes related but different APIs. Treating them as one API can produce
 code that looks valid but fails in the runtime where it is loaded.
+
+The type folders mirror the live browser object:
+
+| Live object | Types module |
+| --- | --- |
+| `sandkit.api` (main) | {@link sandkit.api} |
+| `sandkit.api` (worker) | {@link worker} |
+| `sandkit.engine` | {@link sandkit.engine} |
+| `sandkit.enums` | {@link sandkit.enums} |
+| whole `sandkit` | {@link sandkit.Sandkit} |
 
 ## Main entry (`main.js`)
 
@@ -16,7 +26,7 @@ changes from this context should use:
 Use startup for one-time registration and cache stable type resolutions instead
 of resolving the same IDs repeatedly in a hot callback.
 
-See the {@link main} module for the public `sandkit.api` surface on the main
+See {@link sandkit.api} for the public `sandkit.api` surface on the main
 thread.
 
 ## Worker entry (`worker.js`)
@@ -33,18 +43,12 @@ See the {@link worker} module for the worker `sandkit.api` surface.
 
 ## Engine (`sandkit.engine`)
 
+{@link sandkit.engine} documents the state-first engine object under
+`sandkit.engine`. Prefer {@link sandkit.api} when a public method exists.
+
 **Warning:** engine declarations are internal API stubs. There is no guarantee
 they are complete or correct. Use this documentation and these types **at your
 own risk**.
-
-`sandkit.engine` is available on both the main thread and the worker thread.
-The public `sandkit.api` surface still differs by runtime — do not treat engine
-access as permission to use main-only or worker-only `api` methods in the wrong
-entry.
-
-{@link engine} documents the state-first engine object under
-`sandkit.engine`. Prefer {@link main} (`sandkit.api`) when a public method
-exists.
 
 Engine differences from the public API:
 
@@ -52,6 +56,11 @@ Engine differences from the public API:
 - Names are often shorter (`getPosition` vs `getWorldPosition`).
 - Extra namespaces exist only on the engine (for example `blueprints`,
   `queue`, `entities`, `retroConsole`).
+
+At runtime `sandkit.state === sandkit.engine.state`.
+
+Use engine APIs only when the public API cannot do the job. Treat unresolved
+stubs as documentation gaps, not as a stable contract.
 
 ## Coordinates and identifiers
 
@@ -66,7 +75,7 @@ Engine differences from the public API:
 
 ## Structure processors
 
-Use {@link main.structures.addProcessor} for recurring machine behavior. Keep a
+Use {@link sandkit.api.structures.addProcessor} for recurring machine behavior. Keep a
 processor bounded:
 
 - cache stable type resolutions outside the callback;

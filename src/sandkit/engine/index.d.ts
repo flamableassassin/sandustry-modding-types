@@ -6,30 +6,24 @@
  *
  * **Internal API — use at your own risk.** These declarations are best-effort
  * stubs. There is no guarantee they are complete or correct. Prefer
- * {@link main | sandkit.api} when a public method exists.
+ * {@link sandkit.api} when a public method exists.
+ * At runtime `sandkit.engine.state === sandkit.state`.
  *
  * @module engine
  * @internal
  */
 import type { RetroConsoleApi } from "./retro-console";
 import type { EngineFn, EngineOverlapNs } from "../../common-types/engine";
+import type { SandkitState } from "./state";
 
 export * from "./retro-console";
 export * from "./api";
-
-/** Top-level keys on `sandkit.engine.state`. @internal */
-export interface SandkitEngineState {
-  environment: unknown;
-  sandkit: unknown;
-  session: unknown;
-  shared: unknown;
-  store: unknown;
-}
+export * from "./state";
 
 /**
  * Composed `sandkit.engine.api` shape.
  * Overlap namespaces are loose; engine-only namespaces are declared under
- * `src/shared/engine/api`.
+ * `src/sandkit/engine/api`.
  *
  * @internal
  */
@@ -130,11 +124,12 @@ export type SandkitEngineApi = {
  *
  * **Internal API — use at your own risk.** These declarations are best-effort
  * stubs. There is no guarantee they are complete or correct. Prefer
- * {@link main | sandkit.api} when a public method exists.
+ * {@link sandkit.api} when a public method exists.
+ * At runtime `sandkit.engine.state === sandkit.state`.
  *
  * @internal
  */
 export interface SandkitEngine {
   api: SandkitEngineApi;
-  state: SandkitEngineState;
+  state: SandkitState;
 }
