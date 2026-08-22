@@ -1,4 +1,4 @@
-# Main, worker, and engine runtimes
+# Main and worker runtimes
 
 Sandkit exposes related but different APIs. Treating them as one API can produce
 code that looks valid but fails in the runtime where it is loaded.
@@ -33,13 +33,13 @@ See the {@link worker} module for the worker `sandkit.api` surface.
 
 ## Engine (`sandkit.engine`)
 
-{@link engine} documents the state-first engine object under
-`sandkit.engine`. Prefer {@link main} (`sandkit.api`) when a public method
-exists.
-
 **Warning:** engine declarations are internal API stubs. There is no guarantee
 they are complete or correct. Use this documentation and these types **at your
 own risk**.
+
+{@link engine} documents the state-first engine object under
+`sandkit.engine`. Prefer {@link main} (`sandkit.api`) when a public method
+exists.
 
 Engine differences from the public API:
 
@@ -47,11 +47,6 @@ Engine differences from the public API:
 - Names are often shorter (`getPosition` vs `getWorldPosition`).
 - Extra namespaces exist only on the engine (for example `blueprints`,
   `queue`, `entities`, `retroConsole`).
-
-Use engine APIs only when the public API cannot do the job. Treat unresolved
-stubs as documentation gaps, not as a stable contract.
-
-The composed host global is {@link sandkit.SandkitGlobal}.
 
 ## Coordinates and identifiers
 
