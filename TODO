@@ -1,7 +1,7 @@
 - [ ] Split worker and main runtimes
 - [x] [`constants` namespace](./src/main/api/constants.d.ts) (`physics` skip modes)
 - [x] Export [`maps`](./src/main/api/maps.d.ts) from `src/main/index.d.ts`
-- [x] [`sandkit.engine` stubs](./src/engine/) + composed [`SandkitApi`](./src/main/sandkit-api.d.ts) / [`SandkitGlobal`](./src/sandkit.d.ts)
+- [x] [`sandkit.engine` stubs](./src/engine/)
 - [ ] Clean up the [player shared type](./src/shared-types/player.ts)
   - [ ] Refactor and split up player interface
     - [ ] Tech

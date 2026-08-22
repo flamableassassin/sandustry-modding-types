@@ -47,8 +47,6 @@ export * from "./api/upgrades"
 export * from "./api/workers"
 export * from "./api/world"
 
-export type { SandkitApi } from "./sandkit-api"
-
 // Shared files
 export * from "../shared/api/collector"
 export * from "../shared/api/fire"

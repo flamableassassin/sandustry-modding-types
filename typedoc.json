@@ -4,8 +4,7 @@
   "entryPoints": [
     "./src/main/index.d.ts",
     "./src/worker/index.d.ts",
-    "./src/engine/index.d.ts",
-    "./src/sandkit.d.ts"
+    "./src/engine/index.d.ts"
   ],
   "entryPointStrategy": "resolve",
   "plugin": [
