@@ -5,7 +5,8 @@
   "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx typedoc --tsconfig tsconfig.json"
+    "build": "npx typedoc --tsconfig tsconfig.json",
+    "watch": "npm run build -- --watch"
   },
   "keywords": [],
   "type": "module",

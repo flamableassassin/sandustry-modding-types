@@ -1,8 +1,7 @@
 # Main and worker runtimes
 
-Sandkit exposes related but different APIs to a mod's main and worker entries.
-Treating them as one API can produce code that looks valid but fails in the
-runtime where it is loaded.
+Sandkit exposes related but different APIs. Treating them as one API can produce
+code that looks valid but fails in the runtime where it is loaded.
 
 ## Main entry (`main.js`)
 
@@ -17,6 +16,9 @@ changes from this context should use:
 Use startup for one-time registration and cache stable type resolutions instead
 of resolving the same IDs repeatedly in a hot callback.
 
+See the {@link main} module for the public `sandkit.api` surface on the main
+thread.
+
 ## Worker entry (`worker.js`)
 
 Worker code runs in manager/simulation worker contexts. It exposes a smaller
@@ -27,6 +29,29 @@ Do not copy a main-thread call into worker code unless it appears in the worker
 entry reference. Likewise, do not use a direct worker mutation in main code just
 because the namespace has a similar name.
 
+See the {@link worker} module for the worker `sandkit.api` surface.
+
+## Engine (`sandkit.engine`)
+
+**Warning:** engine declarations are internal API stubs. There is no guarantee
+they are complete or correct. Use this documentation and these types **at your
+own risk**.
+
+`sandkit.engine` is available on both the main thread and the worker thread.
+The public `sandkit.api` surface still differs by runtime — do not treat engine
+access as permission to use main-only or worker-only `api` methods in the wrong
+entry.
+
+{@link engine} documents the state-first engine object under
+`sandkit.engine`. Prefer {@link main} (`sandkit.api`) when a public method
+exists.
+
+Engine differences from the public API:
+
+- Methods usually take the game state as the first argument.
+- Names are often shorter (`getPosition` vs `getWorldPosition`).
+- Extra namespaces exist only on the engine (for example `blueprints`,
+  `queue`, `entities`, `retroConsole`).
 
 ## Coordinates and identifiers
 
@@ -41,7 +66,7 @@ because the namespace has a similar name.
 
 ## Structure processors
 
-Use {@link main.api.structures.addProcessor} for recurring machine behavior. Keep a
+Use {@link main.structures.addProcessor} for recurring machine behavior. Keep a
 processor bounded:
 
 - cache stable type resolutions outside the callback;
